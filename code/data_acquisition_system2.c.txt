@@ -1,38 +1,71 @@
-// Y = Y1 + (Y2 – Y1)/(X2 – X1) * (X - X1)
-
 #include <stdio.h>
 #include <stdlib.h>
 #define R 1000
 #define Vin 5
 
+// structura cu elementele caracteristicii "tensiune vs presiune"
 typedef struct {
    float voltage;
    int pressure;
 } first_chracteristic;
 
+// structura cu elementele caracteristicii "rezistenta vs temperatura"
 typedef struct {
    double res;
    int temp;
 } second_chracteristic;
 
+// un tablou cu elementele primei caracteristici
 first_chracteristic table1[11]= {{0.1 , 0}, {0.3, 10}, {0.6, 20}, {1.1, 30}, {1.7, 40}, 
                                 {2.2, 50}, {2.9, 60}, {3.3, 70}, {3.8, 80}, {4.4, 90}, {4.9, 100}};
-                            
+
+// un tablou cu elementele celei de al 2 caracteristici                          
 second_chracteristic table2[20]= {{177,100}, {241,   90}, {332,   80}, {467,   70}, {667,    60}, 
                                   {973, 50}, {1188,  45}, {1459,  40}, {1802,  35}, {2238,   30},
                                   {2796,25}, {3520,  20}, {4450,  15}, {5670,  10}, {7280,    5}, 
-                                  {9420, 0}, {16180,-10}, {28680,-20}, {52700,-30}, {100000,-40}};
+                                  {9420, 0}, {16180,-10}, {28680,-20}, {52700,-30}, {100000,-40}
+
+double ADC_value[2]={0,0}; // pressure input, temp input
+double adc_result = 0;
 
 int interpolate(float x, float x1, float x2, int y1, int y2);
 float get_pressure_value(double * ADC_value);
 float get_temperature_value(double * ADC_value);
+void read_adc(int channel, * buffer);
+void init(void);
 
 void main(void)
 {
-    double ADC_value[2]={3.2, 4.7}; // pressure input, temp input
-    printf("Pressure input = %.2lf V, Pressure = %.2f\n", ADC_value[0], get_pressure_value(&ADC_value[0]));
-    printf("Temperature input = %.2lf V, Temperature = %.2f", ADC_value[1], get_temperature_value(&ADC_value[1]));
+    init();
+    float pressure = 0;
+    float temp = 0;
+    while(1)
+    {
+    	read_adc(0, &ADC_value[0]);
+    	pressure = get_pressure_value(&ADC_value[0]);
+    	read_adc(1, &ADC_value[1]);
+    	temp = get_temperature_value(&ADC_value[1]);
+    	display(pressure, temp);
+    }
 }
+
+void init(void)
+{
+    TRISB =  0b00000011; 				// Pinul Rb0, RB1 de intrare
+    PORTB =  0b00000000;			        // Initializam portul B cu valoarea 0
+    TRISD =  0b00000000; 				// Toti pinii portului D de iesire
+    PORTD =  0b00000000;				// Initializam portul D cu valoarea 0
+    ANSELH = 0b00000011;				// RA0(AN0), RA1(AN1) --> analogici
+   
+    ADCON1 = 0b10000000;				// ADFM = 1 (Right justified)
+    ADCON0 = 0b01100000;				// ADCS1=0, ADCS0=1, CHS3=0, CHS2=0, CHS1=0, CHS0=0, GO/DONE=0, ADON=1
+    ADIE=1; ADIF=0;
+   
+   
+    INTCON = INTCON & 0b1100000; 	                 //   ????							
+    INTCON = INTCON | 0b11000000; 			 //   ????
+}  
+
 
 float get_pressure_value(double * ADC_value)
 {
@@ -174,4 +207,27 @@ float get_temperature_value(double * ADC_value)
 int interpolate(float x, float x1, float x2, int y1, int y2)
 {
     return y1 + (y2 - y1) / (x2 - x1) * (x - x1);  
+}
+
+void display(double var1, double var2)
+{
+    printf("Pressure = %.2f \n", var1);
+    printf("Temperature = %.2f", var2);
+}
+
+void read_adc(int channel, * buffer)
+{
+   ADCON0 = ADCON0 | (channel << 2);
+   GO = 1;
+   __delay_ms(2);
+   buffer = 5 * adc_result / 1024.0;
+}
+
+void interrupt my_isr(void)	
+{
+      if (ADIF == 1 && ADIE == 1)		// Întrerupere ADC
+      {	   
+	    ADIF = 0;
+	    adc_result = ((ADRESH << 8) + ADRESL);
+      }
 }
