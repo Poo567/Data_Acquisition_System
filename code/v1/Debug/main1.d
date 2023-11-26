@@ -1,0 +1,1 @@
+ main1.d  main1.p1:  ../main1.c

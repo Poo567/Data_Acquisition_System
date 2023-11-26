@@ -1,0 +1,1 @@
+ LCD.d  LCD.p1:  ../LCD.c ../LCD.h ../config.h
