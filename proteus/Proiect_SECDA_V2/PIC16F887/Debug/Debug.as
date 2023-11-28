@@ -879,7 +879,6 @@ EECON2 equ 018Dh ;#
 	FNCALL	_main,_init_ADC
 	FNCALL	_main,_init_LCD
 	FNCALL	_main,_init_uC
-	FNCALL	_main,_lcd_clear
 	FNCALL	_init_LCD,_delay_LCD
 	FNCALL	_init_LCD,_lcd_clear
 	FNCALL	_init_LCD,_lcd_goto
@@ -1232,6 +1231,52 @@ _TRISA	set	0x85
 	global	_ANSELH
 _ANSELH	set	0x189
 	
+STR_2:	
+	retlw	80	;'P'
+	retlw	32	;' '
+	retlw	61	;'='
+	retlw	32	;' '
+	retlw	37	;'%'
+	retlw	100	;'d'
+	retlw	32	;' '
+	retlw	98	;'b'
+	retlw	97	;'a'
+	retlw	114	;'r'
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	0
+psect	strings
+	
+STR_4:	
+	retlw	84	;'T'
+	retlw	32	;' '
+	retlw	61	;'='
+	retlw	32	;' '
+	retlw	37	;'%'
+	retlw	100	;'d'
+	retlw	32	;' '
+	retlw	67	;'C'
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	32	;' '
+	retlw	0
+psect	strings
+	
 STR_1:	
 	retlw	80	;'P'
 	retlw	32	;' '
@@ -1308,32 +1353,6 @@ STR_6:
 	retlw	73	;'I'
 	retlw	111	;'o'
 	retlw	110	;'n'
-	retlw	0
-psect	strings
-	
-STR_2:	
-	retlw	80	;'P'
-	retlw	32	;' '
-	retlw	61	;'='
-	retlw	32	;' '
-	retlw	37	;'%'
-	retlw	100	;'d'
-	retlw	32	;' '
-	retlw	98	;'b'
-	retlw	97	;'a'
-	retlw	114	;'r'
-	retlw	0
-psect	strings
-	
-STR_4:	
-	retlw	84	;'T'
-	retlw	32	;' '
-	retlw	61	;'='
-	retlw	32	;' '
-	retlw	37	;'%'
-	retlw	100	;'d'
-	retlw	32	;' '
-	retlw	67	;'C'
 	retlw	0
 psect	strings
 ; #config settings
@@ -1532,16 +1551,16 @@ get_pressure_value@vout:	; 3 bytes @ 0x3
 	global	get_temperature_value@result
 get_temperature_value@result:	; 2 bytes @ 0x4
 	ds	2
-	global	_display_pressure$756
-_display_pressure$756:	; 3 bytes @ 0x6
+	global	_display_pressure$755
+_display_pressure$755:	; 3 bytes @ 0x6
 	global	get_temperature_value@Rt
 get_temperature_value@Rt:	; 4 bytes @ 0x6
 	ds	3
 	global	display_pressure@calculated_pressure
 display_pressure@calculated_pressure:	; 2 bytes @ 0x9
 	ds	1
-	global	_display_temperature$757
-_display_temperature$757:	; 3 bytes @ 0xA
+	global	_display_temperature$756
+_display_temperature$756:	; 3 bytes @ 0xA
 	ds	3
 	global	display_temperature@calculated_temp
 display_temperature@calculated_temp:	; 2 bytes @ 0xD
@@ -1557,13 +1576,13 @@ __pcstackCOMMON:
 ?_init_ADC:	; 1 bytes @ 0x0
 ??_init_ADC:	; 1 bytes @ 0x0
 ?_init_LCD:	; 1 bytes @ 0x0
-?_lcd_clear:	; 1 bytes @ 0x0
 ?_display_pressure:	; 1 bytes @ 0x0
 ?_display_temperature:	; 1 bytes @ 0x0
 ?_strcpy:	; 1 bytes @ 0x0
 ?_lcd_goto:	; 1 bytes @ 0x0
 ?_delay_LCD:	; 1 bytes @ 0x0
 ?_lcd_write:	; 1 bytes @ 0x0
+?_lcd_clear:	; 1 bytes @ 0x0
 ?_main:	; 1 bytes @ 0x0
 	global	?___lwdiv
 ?___lwdiv:	; 2 bytes @ 0x0
@@ -1646,11 +1665,11 @@ ___lltoft@exp:	; 1 bytes @ 0xC
 	global	lcd_write@c
 lcd_write@c:	; 1 bytes @ 0xD
 	ds	1
-??_lcd_clear:	; 1 bytes @ 0xE
 ??_display_pressure:	; 1 bytes @ 0xE
 ??_display_temperature:	; 1 bytes @ 0xE
 ??_lcd_goto:	; 1 bytes @ 0xE
 ??_lcd_puts:	; 1 bytes @ 0xE
+??_lcd_clear:	; 1 bytes @ 0xE
 psect	cstackBANK0,class=BANK0,space=1,noexec
 global __pcstackBANK0
 __pcstackBANK0:
@@ -1791,8 +1810,8 @@ interpolate@y1:	; 2 bytes @ 0x46
 	global	interpolate@y2
 interpolate@y2:	; 2 bytes @ 0x48
 	ds	2
-	global	_interpolate$755
-_interpolate$755:	; 3 bytes @ 0x4A
+	global	_interpolate$754
+_interpolate$754:	; 3 bytes @ 0x4A
 	ds	3
 	global	?_get_pressure_value
 ?_get_pressure_value:	; 3 bytes @ 0x4D
@@ -1801,7 +1820,7 @@ _interpolate$755:	; 3 bytes @ 0x4A
 	ds	3
 ;!
 ;!Data Sizes:
-;!    Strings     87
+;!    Strings     107
 ;!    Constant    10
 ;!    Data        155
 ;!    BSS         26
@@ -1834,8 +1853,8 @@ _interpolate$755:	; 3 bytes @ 0x4A
 ;!    sprintf@ap	PTR void [1] size(1) Largest target is 2
 ;!		 -> ?_sprintf(BANK0[2]), 
 ;!
-;!    sprintf@f	PTR const unsigned char  size(1) Largest target is 11
-;!		 -> STR_2(CODE[11]), STR_4(CODE[9]), 
+;!    sprintf@f	PTR const unsigned char  size(1) Largest target is 21
+;!		 -> STR_2(CODE[21]), STR_4(CODE[19]), 
 ;!
 ;!    sprintf@sp	PTR unsigned char  size(1) Largest target is 20
 ;!		 -> display_value(BANK3[20]), 
@@ -1911,14 +1930,13 @@ _interpolate$755:	; 3 bytes @ 0x4A
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                 3     3      0   94243
+;! (0) _main                                                 3     3      0   93623
 ;!                                             15 BANK1      3     3      0
 ;!                   _display_pressure
 ;!                _display_temperature
 ;!                           _init_ADC
 ;!                           _init_LCD
 ;!                            _init_uC
-;!                          _lcd_clear
 ;! ---------------------------------------------------------------------------------
 ;! (1) _init_uC                                              0     0      0       0
 ;! ---------------------------------------------------------------------------------
@@ -1930,7 +1948,7 @@ _interpolate$755:	; 3 bytes @ 0x4A
 ;!                           _lcd_puts
 ;!                          _lcd_write
 ;! ---------------------------------------------------------------------------------
-;! (1) _lcd_clear                                            0     0      0     620
+;! (2) _lcd_clear                                            0     0      0     620
 ;!                          _lcd_write
 ;! ---------------------------------------------------------------------------------
 ;! (1) _init_ADC                                             0     0      0       0
@@ -2146,7 +2164,6 @@ _interpolate$755:	; 3 bytes @ 0x4A
 ;!     _lcd_puts
 ;!     _lcd_write
 ;!   _init_uC
-;!   _lcd_clear
 ;!
 
 ;! Address spaces:
@@ -2207,7 +2224,6 @@ _interpolate$755:	; 3 bytes @ 0x4A
 ;;		_init_ADC
 ;;		_init_LCD
 ;;		_init_uC
-;;		_lcd_clear
 ;; This function is called by:
 ;;		Startup code after reset
 ;; This function uses a non-reentrant model
@@ -2238,23 +2254,23 @@ l2237:
 	line	33
 	
 l2239:	
-	fcall	_lcd_clear
-	line	34
 	fcall	_display_pressure
-	line	35
-	fcall	_display_temperature
-	line	36
+	line	34
 	
 l2241:	
+	fcall	_display_temperature
+	line	35
+	
+l2243:	
 	asmopt push
 asmopt off
-movlw  5
+movlw  3
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 movwf	((??_main+0)^080h+0+2)
-movlw	15
+movlw	8
 movwf	((??_main+0)^080h+0+1)
-	movlw	240
+	movlw	118
 movwf	((??_main+0)^080h+0)
 	u3177:
 decfsz	((??_main+0)^080h+0),f
@@ -2270,7 +2286,7 @@ asmopt pop
 	global	start
 	ljmp	start
 	callstack 0
-	line	38
+	line	37
 GLOBAL	__end_of_main
 	__end_of_main:
 	signat	_main,89
@@ -2319,23 +2335,23 @@ _init_uC:
 ; Regs used in _init_uC: [wreg+status,2]
 	line	5
 	
-l1453:	
+l1451:	
 	movlw	low(03h)
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(133)^080h	;volatile
 	line	6
 	
-l1455:	
+l1453:	
 	bcf	status, 5	;RP0=0, select bank0
 	clrf	(5)	;volatile
 	line	7
 	
-l1457:	
+l1455:	
 	bsf	status, 5	;RP0=1, select bank1
 	clrf	(136)^080h	;volatile
 	line	8
 	
-l177:	
+l175:	
 	return
 	callstack 0
 GLOBAL	__end_of_init_uC
@@ -2546,7 +2562,7 @@ asmopt pop
 
 	line	26
 	
-l144:	
+l142:	
 	return
 	callstack 0
 GLOBAL	__end_of_init_LCD
@@ -2566,7 +2582,7 @@ GLOBAL	__end_of_init_LCD
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/0
+;;		On entry : 300/0
 ;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
@@ -2580,7 +2596,6 @@ GLOBAL	__end_of_init_LCD
 ;; This function calls:
 ;;		_lcd_write
 ;; This function is called by:
-;;		_main
 ;;		_init_LCD
 ;; This function uses a non-reentrant model
 ;;
@@ -2594,22 +2609,20 @@ psect	text3
 	
 _lcd_clear:	
 ;incstack = 0
-	callstack 5
+	callstack 4
 ; Regs used in _lcd_clear: [wreg+status,2+status,0+pclath+cstack]
 	line	37
 	
-l1897:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
+l2187:	
 	bcf	(68/8),(68)&7	;volatile
 	line	38
 	
-l1899:	
+l2189:	
 	movlw	low(01h)
 	fcall	_lcd_write
 	line	39
 	
-l150:	
+l148:	
 	return
 	callstack 0
 GLOBAL	__end_of_lcd_clear
@@ -2660,7 +2673,7 @@ _init_ADC:
 ; Regs used in _init_ADC: [wreg]
 	line	17
 	
-l1459:	
+l1457:	
 	movlw	low(03h)
 	bsf	status, 6	;RP1=1, select bank3
 	movwf	(393)^0180h	;volatile
@@ -2674,7 +2687,7 @@ l1459:
 	movwf	(31)	;volatile
 	line	20
 	
-l202:	
+l200:	
 	return
 	callstack 0
 GLOBAL	__end_of_init_ADC
@@ -2684,7 +2697,7 @@ GLOBAL	__end_of_init_ADC
 
 ;; *************** function _display_temperature *****************
 ;; Defined at:
-;;		line 200 in file "../main.c"
+;;		line 199 in file "../main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -2719,21 +2732,21 @@ GLOBAL	__end_of_init_ADC
 ;;
 psect	text5,local,class=CODE,delta=2,merge=1,group=0
 	file	"../main.c"
-	line	200
+	line	199
 global __ptext5
 __ptext5:	;psect for function _display_temperature
 psect	text5
 	file	"../main.c"
-	line	200
+	line	199
 	
 _display_temperature:	
 ;incstack = 0
 	callstack 2
 ; Regs used in _display_temperature: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	202
+	line	201
 	
 l2217:	
-	line	204
+	line	203
 	
 l2219:	
 	movlw	01h
@@ -2752,33 +2765,33 @@ l2219:
 	movf	(2+(?_read_adc)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	2+(_ADC_value)^080h+03h
-	line	205
+	line	204
 	
 l2221:	
 	movlw	(low(_ADC_value|((0x0)<<8)+03h))&0ffh
 	fcall	_get_temperature_value
 	movf	(0+(?_get_temperature_value)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_display_temperature$757)^080h
+	movwf	(_display_temperature$756)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?_get_temperature_value)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_display_temperature$757+1)^080h
+	movwf	(_display_temperature$756+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?_get_temperature_value)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_display_temperature$757+2)^080h
+	movwf	(_display_temperature$756+2)^080h
 	
 l2223:	
-	movf	(_display_temperature$757)^080h,w
+	movf	(_display_temperature$756)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fttol@f1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_display_temperature$757+1)^080h,w
+	movf	(_display_temperature$756+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fttol@f1+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_display_temperature$757+2)^080h,w
+	movf	(_display_temperature$756+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fttol@f1+2)
 	fcall	___fttol
@@ -2789,7 +2802,7 @@ l2223:
 	movf	(0+(?___fttol)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(display_temperature@calculated_temp)^080h
-	line	206
+	line	205
 	
 l2225:	
 		movlw	156
@@ -2803,7 +2816,7 @@ l2225:
 u3161:
 	goto	l2229
 u3160:
-	line	207
+	line	206
 	
 l2227:	
 	movlw	(low((((STR_3)-__stringbase)|8000h)))&0ffh
@@ -2811,7 +2824,7 @@ l2227:
 	movlw	(low(_display_value|((0x1)<<8)))&0ffh
 	fcall	_strcpy
 	goto	l2231
-	line	209
+	line	208
 	
 l2229:	
 	movlw	(low((((STR_4)-__stringbase)|8000h)))&0ffh
@@ -2827,12 +2840,12 @@ l2229:
 	movwf	0+(?_sprintf)+01h
 	movlw	(low(_display_value|((0x1)<<8)))&0ffh
 	fcall	_sprintf
-	line	210
+	line	209
 	
 l2231:	
 	movlw	low(094h)
 	fcall	_lcd_goto
-	line	211
+	line	210
 	
 l2233:	
 	movlw	(low(_display_value|((0x1)<<8))&0ffh)
@@ -2840,9 +2853,9 @@ l2233:
 	movlw	(0x1)
 	movwf	(lcd_puts@s+1)
 	fcall	_lcd_puts
-	line	212
+	line	211
 	
-l123:	
+l121:	
 	return
 	callstack 0
 GLOBAL	__end_of_display_temperature
@@ -2852,7 +2865,7 @@ GLOBAL	__end_of_display_temperature
 
 ;; *************** function _get_temperature_value *****************
 ;; Defined at:
-;;		line 91 in file "../main.c"
+;;		line 90 in file "../main.c"
 ;; Parameters:    Size  Location     Type
 ;;  ADC_value       1    wreg     PTR 
 ;;		 -> ADC_value(6), 
@@ -2891,25 +2904,25 @@ GLOBAL	__end_of_display_temperature
 ;; This function uses a non-reentrant model
 ;;
 psect	text6,local,class=CODE,delta=2,merge=1,group=0
-	line	91
+	line	90
 global __ptext6
 __ptext6:	;psect for function _get_temperature_value
 psect	text6
 	file	"../main.c"
-	line	91
+	line	90
 	
 _get_temperature_value:	
 ;incstack = 0
 	callstack 2
 ; Regs used in _get_temperature_value: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	92
+	line	91
 	movwf	(get_temperature_value@ADC_value)^080h
+	line	92
+	
+l1967:	
 	line	93
 	
-l1971:	
-	line	94
-	
-l1973:	
+l1969:	
 	movf	(get_temperature_value@ADC_value)^080h,w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
@@ -2921,12 +2934,12 @@ l1973:
 	incf	fsr0,f
 	movf	indf,w
 	movwf	(get_temperature_value@vout+2)^080h
-	line	95
+	line	94
 	
-l1975:	
-	line	97
+l1971:	
+	line	96
 	
-l1977:	
+l1973:	
 	movf	(get_temperature_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___ftmul@f2)
@@ -3000,9 +3013,9 @@ l1977:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@Rt)^080h
 
-	line	98
+	line	97
 	
-l1979:	
+l1975:	
 		movf	(get_temperature_value@Rt+3)^080h,w
 	btfss	status,2
 	goto	u2661
@@ -3022,10 +3035,10 @@ u2663:
 	goto	u2660
 
 u2661:
-	goto	l1985
+	goto	l1981
 u2660:
 	
-l1981:	
+l1977:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3047,11 +3060,11 @@ u2673:
 	goto	u2670
 
 u2671:
-	goto	l1985
+	goto	l1981
 u2670:
-	line	100
+	line	99
 	
-l1983:	
+l1979:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -3137,11 +3150,11 @@ l1983:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	100
+	goto	l2091
 	line	101
-	goto	l2095
-	line	102
 	
-l1985:	
+l1981:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3164,10 +3177,10 @@ u2683:
 	goto	u2680
 
 u2681:
-	goto	l1991
+	goto	l1987
 u2680:
 	
-l1987:	
+l1983:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3189,11 +3202,11 @@ u2693:
 	goto	u2690
 
 u2691:
-	goto	l1991
+	goto	l1987
 u2690:
-	line	104
+	line	103
 	
-l1989:	
+l1985:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -3284,11 +3297,11 @@ l1989:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	104
+	goto	l2091
 	line	105
-	goto	l2095
-	line	106
 	
-l1991:	
+l1987:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3311,10 +3324,10 @@ u2703:
 	goto	u2700
 
 u2701:
-	goto	l1997
+	goto	l1993
 u2700:
 	
-l1993:	
+l1989:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3337,11 +3350,11 @@ u2713:
 	goto	u2710
 
 u2711:
-	goto	l1997
+	goto	l1993
 u2710:
-	line	108
+	line	107
 	
-l1995:	
+l1991:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -3432,11 +3445,11 @@ l1995:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	108
+	goto	l2091
 	line	109
-	goto	l2095
-	line	110
 	
-l1997:	
+l1993:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3459,10 +3472,10 @@ u2723:
 	goto	u2720
 
 u2721:
-	goto	l2003
+	goto	l1999
 u2720:
 	
-l1999:	
+l1995:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3485,11 +3498,11 @@ u2733:
 	goto	u2730
 
 u2731:
-	goto	l2003
+	goto	l1999
 u2730:
-	line	112
+	line	111
 	
-l2001:	
+l1997:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -3580,11 +3593,11 @@ l2001:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	112
+	goto	l2091
 	line	113
-	goto	l2095
-	line	114
 	
-l2003:	
+l1999:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3607,10 +3620,10 @@ u2743:
 	goto	u2740
 
 u2741:
-	goto	l2009
+	goto	l2005
 u2740:
 	
-l2005:	
+l2001:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3633,11 +3646,11 @@ u2753:
 	goto	u2750
 
 u2751:
-	goto	l2009
+	goto	l2005
 u2750:
-	line	116
+	line	115
 	
-l2007:	
+l2003:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -3728,11 +3741,11 @@ l2007:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	116
+	goto	l2091
 	line	117
-	goto	l2095
-	line	118
 	
-l2009:	
+l2005:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3755,10 +3768,10 @@ u2763:
 	goto	u2760
 
 u2761:
-	goto	l2015
+	goto	l2011
 u2760:
 	
-l2011:	
+l2007:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3781,11 +3794,11 @@ u2773:
 	goto	u2770
 
 u2771:
-	goto	l2015
+	goto	l2011
 u2770:
-	line	120
+	line	119
 	
-l2013:	
+l2009:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -3876,11 +3889,11 @@ l2013:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	120
+	goto	l2091
 	line	121
-	goto	l2095
-	line	122
 	
-l2015:	
+l2011:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3903,10 +3916,10 @@ u2783:
 	goto	u2780
 
 u2781:
-	goto	l2021
+	goto	l2017
 u2780:
 	
-l2017:	
+l2013:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -3929,11 +3942,11 @@ u2793:
 	goto	u2790
 
 u2791:
-	goto	l2021
+	goto	l2017
 u2790:
-	line	124
+	line	123
 	
-l2019:	
+l2015:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4024,11 +4037,11 @@ l2019:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	124
+	goto	l2091
 	line	125
-	goto	l2095
-	line	126
 	
-l2021:	
+l2017:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4051,10 +4064,10 @@ u2803:
 	goto	u2800
 
 u2801:
-	goto	l2027
+	goto	l2023
 u2800:
 	
-l2023:	
+l2019:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4077,11 +4090,11 @@ u2813:
 	goto	u2810
 
 u2811:
-	goto	l2027
+	goto	l2023
 u2810:
-	line	128
+	line	127
 	
-l2025:	
+l2021:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4172,11 +4185,11 @@ l2025:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	128
+	goto	l2091
 	line	129
-	goto	l2095
-	line	130
 	
-l2027:	
+l2023:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4199,10 +4212,10 @@ u2823:
 	goto	u2820
 
 u2821:
-	goto	l2033
+	goto	l2029
 u2820:
 	
-l2029:	
+l2025:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4225,11 +4238,11 @@ u2833:
 	goto	u2830
 
 u2831:
-	goto	l2033
+	goto	l2029
 u2830:
-	line	132
+	line	131
 	
-l2031:	
+l2027:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4320,11 +4333,11 @@ l2031:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	132
+	goto	l2091
 	line	133
-	goto	l2095
-	line	134
 	
-l2033:	
+l2029:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4347,10 +4360,10 @@ u2843:
 	goto	u2840
 
 u2841:
-	goto	l2039
+	goto	l2035
 u2840:
 	
-l2035:	
+l2031:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4373,11 +4386,11 @@ u2853:
 	goto	u2850
 
 u2851:
-	goto	l2039
+	goto	l2035
 u2850:
-	line	136
+	line	135
 	
-l2037:	
+l2033:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4468,11 +4481,11 @@ l2037:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	136
+	goto	l2091
 	line	137
-	goto	l2095
-	line	138
 	
-l2039:	
+l2035:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4495,10 +4508,10 @@ u2863:
 	goto	u2860
 
 u2861:
-	goto	l2045
+	goto	l2041
 u2860:
 	
-l2041:	
+l2037:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4521,11 +4534,11 @@ u2873:
 	goto	u2870
 
 u2871:
-	goto	l2045
+	goto	l2041
 u2870:
-	line	140
+	line	139
 	
-l2043:	
+l2039:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4616,11 +4629,11 @@ l2043:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	140
+	goto	l2091
 	line	141
-	goto	l2095
-	line	142
 	
-l2045:	
+l2041:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4643,10 +4656,10 @@ u2883:
 	goto	u2880
 
 u2881:
-	goto	l2051
+	goto	l2047
 u2880:
 	
-l2047:	
+l2043:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4669,11 +4682,11 @@ u2893:
 	goto	u2890
 
 u2891:
-	goto	l2051
+	goto	l2047
 u2890:
-	line	144
+	line	143
 	
-l2049:	
+l2045:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4764,11 +4777,11 @@ l2049:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	144
+	goto	l2091
 	line	145
-	goto	l2095
-	line	146
 	
-l2051:	
+l2047:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4791,10 +4804,10 @@ u2903:
 	goto	u2900
 
 u2901:
-	goto	l2057
+	goto	l2053
 u2900:
 	
-l2053:	
+l2049:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4817,11 +4830,11 @@ u2913:
 	goto	u2910
 
 u2911:
-	goto	l2057
+	goto	l2053
 u2910:
-	line	148
+	line	147
 	
-l2055:	
+l2051:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -4912,11 +4925,11 @@ l2055:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	148
+	goto	l2091
 	line	149
-	goto	l2095
-	line	150
 	
-l2057:	
+l2053:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4939,10 +4952,10 @@ u2923:
 	goto	u2920
 
 u2921:
-	goto	l2063
+	goto	l2059
 u2920:
 	
-l2059:	
+l2055:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -4965,11 +4978,11 @@ u2933:
 	goto	u2930
 
 u2931:
-	goto	l2063
+	goto	l2059
 u2930:
-	line	152
+	line	151
 	
-l2061:	
+l2057:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -5060,11 +5073,11 @@ l2061:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	152
+	goto	l2091
 	line	153
-	goto	l2095
-	line	154
 	
-l2063:	
+l2059:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5087,10 +5100,10 @@ u2943:
 	goto	u2940
 
 u2941:
-	goto	l2069
+	goto	l2065
 u2940:
 	
-l2065:	
+l2061:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5113,11 +5126,11 @@ u2953:
 	goto	u2950
 
 u2951:
-	goto	l2069
+	goto	l2065
 u2950:
-	line	156
+	line	155
 	
-l2067:	
+l2063:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -5208,11 +5221,11 @@ l2067:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	156
+	goto	l2091
 	line	157
-	goto	l2095
-	line	158
 	
-l2069:	
+l2065:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5235,10 +5248,10 @@ u2963:
 	goto	u2960
 
 u2961:
-	goto	l2075
+	goto	l2071
 u2960:
 	
-l2071:	
+l2067:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5261,11 +5274,11 @@ u2973:
 	goto	u2970
 
 u2971:
-	goto	l2075
+	goto	l2071
 u2970:
-	line	160
+	line	159
 	
-l2073:	
+l2069:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -5356,11 +5369,11 @@ l2073:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	160
+	goto	l2091
 	line	161
-	goto	l2095
-	line	162
 	
-l2075:	
+l2071:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5383,10 +5396,10 @@ u2983:
 	goto	u2980
 
 u2981:
-	goto	l2081
+	goto	l2077
 u2980:
 	
-l2077:	
+l2073:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5409,11 +5422,11 @@ u2993:
 	goto	u2990
 
 u2991:
-	goto	l2081
+	goto	l2077
 u2990:
-	line	164
+	line	163
 	
-l2079:	
+l2075:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -5504,11 +5517,11 @@ l2079:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	164
+	goto	l2091
 	line	165
-	goto	l2095
-	line	166
 	
-l2081:	
+l2077:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5531,10 +5544,10 @@ u3003:
 	goto	u3000
 
 u3001:
-	goto	l2087
+	goto	l2083
 u3000:
 	
-l2083:	
+l2079:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5557,11 +5570,11 @@ u3013:
 	goto	u3010
 
 u3011:
-	goto	l2087
+	goto	l2083
 u3010:
-	line	168
+	line	167
 	
-l2085:	
+l2081:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -5652,11 +5665,11 @@ l2085:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
+	line	168
+	goto	l2091
 	line	169
-	goto	l2095
-	line	170
 	
-l2087:	
+l2083:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5680,10 +5693,10 @@ u3023:
 	goto	u3020
 
 u3021:
-	goto	l2093
+	goto	l2089
 u3020:
 	
-l2089:	
+l2085:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 		movf	(get_temperature_value@Rt+3)^080h,w
@@ -5706,11 +5719,11 @@ u3033:
 	goto	u3030
 
 u3031:
-	goto	l2093
+	goto	l2089
 u3030:
-	line	172
+	line	171
 	
-l2091:	
+l2087:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(get_temperature_value@Rt+3)^080h,w
@@ -5801,20 +5814,20 @@ l2091:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_temperature_value@result)^080h
-	line	173
-	goto	l2095
-	line	176
+	line	172
+	goto	l2091
+	line	175
 	
-l2093:	
+l2089:	
 	movlw	09Ch
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(get_temperature_value@result)^080h
 	movlw	0FFh
 	movwf	((get_temperature_value@result)^080h)+1
-	line	178
+	line	177
 	
-l2095:	
+l2091:	
 	movf	(get_temperature_value@result+1)^080h,w
 	movwf	(___awtoft@c+1)
 	movf	(get_temperature_value@result)^080h,w
@@ -5828,9 +5841,9 @@ l2095:
 	movwf	(?_get_temperature_value+1)
 	movf	(2+(?___awtoft)),w
 	movwf	(?_get_temperature_value+2)
-	line	179
+	line	178
 	
-l110:	
+l108:	
 	return
 	callstack 0
 GLOBAL	__end_of_get_temperature_value
@@ -5940,7 +5953,7 @@ l1845:
 	movwf	(?___lltoft+2)
 	line	46
 	
-l661:	
+l659:	
 	return
 	callstack 0
 GLOBAL	__end_of___lltoft
@@ -5950,7 +5963,7 @@ GLOBAL	__end_of___lltoft
 
 ;; *************** function _display_pressure *****************
 ;; Defined at:
-;;		line 186 in file "../main.c"
+;;		line 185 in file "../main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -5960,7 +5973,7 @@ GLOBAL	__end_of___lltoft
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/0
+;;		On entry : 0/0
 ;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
@@ -5985,24 +5998,26 @@ GLOBAL	__end_of___lltoft
 ;;
 psect	text8,local,class=CODE,delta=2,merge=1,group=0
 	file	"../main.c"
-	line	186
+	line	185
 global __ptext8
 __ptext8:	;psect for function _display_pressure
 psect	text8
 	file	"../main.c"
-	line	186
+	line	185
 	
 _display_pressure:	
 ;incstack = 0
 	callstack 2
 ; Regs used in _display_pressure: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	188
+	line	187
 	
 l2199:	
-	line	190
+	line	189
 	
 l2201:	
 	movlw	0
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(read_adc@channel)
 	movwf	(read_adc@channel+1)
 	fcall	_read_adc
@@ -6017,33 +6032,33 @@ l2201:
 	movf	(2+(?_read_adc)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(_ADC_value+2)^080h
-	line	191
+	line	190
 	
 l2203:	
 	movlw	(low(_ADC_value|((0x0)<<8)))&0ffh
 	fcall	_get_pressure_value
 	movf	(0+(?_get_pressure_value)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_display_pressure$756)^080h
+	movwf	(_display_pressure$755)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?_get_pressure_value)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_display_pressure$756+1)^080h
+	movwf	(_display_pressure$755+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?_get_pressure_value)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_display_pressure$756+2)^080h
+	movwf	(_display_pressure$755+2)^080h
 	
 l2205:	
-	movf	(_display_pressure$756)^080h,w
+	movf	(_display_pressure$755)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fttol@f1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_display_pressure$756+1)^080h,w
+	movf	(_display_pressure$755+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fttol@f1+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_display_pressure$756+2)^080h,w
+	movf	(_display_pressure$755+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fttol@f1+2)
 	fcall	___fttol
@@ -6054,7 +6069,7 @@ l2205:
 	movf	(0+(?___fttol)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(display_pressure@calculated_pressure)^080h
-	line	192
+	line	191
 	
 l2207:	
 		movlw	156
@@ -6068,7 +6083,7 @@ l2207:
 u3151:
 	goto	l2211
 u3150:
-	line	193
+	line	192
 	
 l2209:	
 	movlw	(low((((STR_1)-__stringbase)|8000h)))&0ffh
@@ -6076,7 +6091,7 @@ l2209:
 	movlw	(low(_display_value|((0x1)<<8)))&0ffh
 	fcall	_strcpy
 	goto	l2213
-	line	195
+	line	194
 	
 l2211:	
 	movlw	(low((((STR_2)-__stringbase)|8000h)))&0ffh
@@ -6092,12 +6107,12 @@ l2211:
 	movwf	0+(?_sprintf)+01h
 	movlw	(low(_display_value|((0x1)<<8)))&0ffh
 	fcall	_sprintf
-	line	196
+	line	195
 	
 l2213:	
 	movlw	low(080h)
 	fcall	_lcd_goto
-	line	197
+	line	196
 	
 l2215:	
 	movlw	(low(_display_value|((0x1)<<8))&0ffh)
@@ -6105,9 +6120,9 @@ l2215:
 	movlw	(0x1)
 	movwf	(lcd_puts@s+1)
 	fcall	_lcd_puts
-	line	198
+	line	197
 	
-l118:	
+l116:	
 	return
 	callstack 0
 GLOBAL	__end_of_display_pressure
@@ -6166,14 +6181,14 @@ _strcpy:
 	movwf	(strcpy@to)
 	line	18
 	
-l2113:	
+l2109:	
 	movf	(strcpy@to),w
 	movwf	(strcpy@cp)
 	line	19
-	goto	l2117
+	goto	l2113
 	line	20
 	
-l2115:	
+l2111:	
 	movlw	low(01h)
 	movwf	btemp+1
 	movf	btemp+1,w
@@ -6185,7 +6200,7 @@ l2115:
 	addwf	(strcpy@from),f
 	line	19
 	
-l2117:	
+l2113:	
 	movf	(strcpy@from),w
 	movwf	fsr0
 	fcall	stringdir
@@ -6200,11 +6215,11 @@ l2117:
 	goto	u3061
 	goto	u3060
 u3061:
-	goto	l2115
+	goto	l2111
 u3060:
 	line	24
 	
-l745:	
+l743:	
 	return
 	callstack 0
 GLOBAL	__end_of_strcpy
@@ -6219,7 +6234,7 @@ GLOBAL	__end_of_strcpy
 ;;  sp              1    wreg     PTR unsigned char 
 ;;		 -> display_value(20), 
 ;;  f               1    0[BANK0 ] PTR const unsigned char 
-;;		 -> STR_4(9), STR_2(11), 
+;;		 -> STR_4(19), STR_2(21), 
 ;; Auto vars:     Size  Location     Type
 ;;  sp              1   11[BANK0 ] PTR unsigned char 
 ;;		 -> display_value(20), 
@@ -6272,45 +6287,45 @@ _sprintf:
 	movwf	(sprintf@sp)
 	line	550
 	
-l2119:	
+l2115:	
 	movlw	(low(?_sprintf|((0x0)<<8)+01h))&0ffh
 	movwf	(sprintf@ap)
 	line	553
-	goto	l2173
+	goto	l2169
 	line	555
 	
-l2121:	
+l2117:	
 		movlw	37
 	xorwf	((sprintf@c)),w
 	btfsc	status,2
 	goto	u3071
 	goto	u3070
 u3071:
-	goto	l2127
+	goto	l2123
 u3070:
 	line	558
 	
-l2123:	
+l2119:	
 	movf	(sprintf@sp),w
 	movwf	fsr0
 	movf	(sprintf@c),w
 	bsf	status, 7	;select IRP bank2
 	movwf	indf
 	
-l2125:	
+l2121:	
 	movlw	low(01h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	addwf	(sprintf@sp),f
 	line	559
-	goto	l2173
+	goto	l2169
 	line	565
 	
-l2127:	
+l2123:	
 	clrf	(sprintf@flag)
 	line	661
 	
-l2131:	
+l2127:	
 	movlw	01h
 	addwf	(sprintf@f),f
 	movlw	-01h
@@ -6330,19 +6345,19 @@ l2131:
 	asmopt off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l2175
+	goto	l2171
 	xorlw	100^0	; case 100
 	skipnz
-	goto	l2133
+	goto	l2129
 	xorlw	105^100	; case 105
 	skipnz
-	goto	l2133
-	goto	l2173
+	goto	l2129
+	goto	l2169
 	asmopt pop
 
 	line	1285
 	
-l2133:	
+l2129:	
 	movf	(sprintf@ap),w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
@@ -6352,30 +6367,30 @@ l2133:
 	movf	indf,w
 	movwf	(sprintf@val+1)
 	
-l2135:	
+l2131:	
 	movlw	low(02h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	addwf	(sprintf@ap),f
 	line	1287
 	
-l2137:	
+l2133:	
 	btfss	(sprintf@val+1),7
 	goto	u3081
 	goto	u3080
 u3081:
-	goto	l2143
+	goto	l2139
 u3080:
 	line	1288
 	
-l2139:	
+l2135:	
 	movlw	low(03h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	iorwf	(sprintf@flag),f
 	line	1289
 	
-l2141:	
+l2137:	
 	comf	(sprintf@val),f
 	comf	(sprintf@val+1),f
 	incf	(sprintf@val),f
@@ -6383,12 +6398,12 @@ l2141:
 	incf	(sprintf@val+1),f
 	line	1331
 	
-l2143:	
+l2139:	
 	clrf	(sprintf@c)
 	incf	(sprintf@c),f
 	line	1332
 	
-l2149:	
+l2145:	
 	movf	(sprintf@c),w
 	movwf	(??_sprintf+0)+0
 	addwf	(??_sprintf+0)+0,w
@@ -6409,61 +6424,61 @@ u3095:
 	goto	u3091
 	goto	u3090
 u3091:
-	goto	l2153
+	goto	l2149
 u3090:
-	goto	l2157
+	goto	l2153
 	line	1331
 	
-l2153:	
+l2149:	
 	movlw	low(01h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	addwf	(sprintf@c),f
 	
-l2155:	
+l2151:	
 		movlw	5
 	xorwf	((sprintf@c)),w
 	btfss	status,2
 	goto	u3101
 	goto	u3100
 u3101:
-	goto	l2149
+	goto	l2145
 u3100:
 	line	1464
 	
-l2157:	
+l2153:	
 	movf	(sprintf@flag),w
 	andlw	03h
 	btfsc	status,2
 	goto	u3111
 	goto	u3110
 u3111:
-	goto	l2163
+	goto	l2159
 u3110:
 	line	1465
 	
-l2159:	
+l2155:	
 	movf	(sprintf@sp),w
 	movwf	fsr0
 	movlw	low(02Dh)
 	bsf	status, 7	;select IRP bank2
 	movwf	indf
 	
-l2161:	
+l2157:	
 	movlw	low(01h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	addwf	(sprintf@sp),f
 	line	1498
 	
-l2163:	
+l2159:	
 	movf	(sprintf@c),w
 	movwf	(sprintf@prec)
 	line	1500
-	goto	l2171
+	goto	l2167
 	line	1515
 	
-l2165:	
+l2161:	
 	movlw	0Ah
 	movwf	(___lwmod@divisor)
 	movlw	0
@@ -6492,21 +6507,21 @@ l2165:
 	movwf	(sprintf@c)
 	line	1550
 	
-l2167:	
+l2163:	
 	movf	(sprintf@sp),w
 	movwf	fsr0
 	movf	(sprintf@c),w
 	bsf	status, 7	;select IRP bank2
 	movwf	indf
 	
-l2169:	
+l2165:	
 	movlw	low(01h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	addwf	(sprintf@sp),f
 	line	1500
 	
-l2171:	
+l2167:	
 	movlw	low(-1)
 	movwf	btemp+1
 	movf	btemp+1,w
@@ -6516,11 +6531,11 @@ l2171:
 	goto	u3121
 	goto	u3120
 u3121:
-	goto	l2165
+	goto	l2161
 u3120:
 	line	553
 	
-l2173:	
+l2169:	
 	movlw	01h
 	addwf	(sprintf@f),f
 	movlw	-01h
@@ -6533,18 +6548,18 @@ l2173:
 	goto	u3131
 	goto	u3130
 u3131:
-	goto	l2121
+	goto	l2117
 u3130:
 	line	1564
 	
-l2175:	
+l2171:	
 	movf	(sprintf@sp),w
 	movwf	fsr0
 	bsf	status, 7	;select IRP bank2
 	clrf	indf
 	line	1567
 	
-l312:	
+l310:	
 	return
 	callstack 0
 GLOBAL	__end_of_sprintf
@@ -6697,7 +6712,7 @@ l1893:
 	movwf	(?___lwmod)
 	line	25
 	
-l734:	
+l732:	
 	return
 	callstack 0
 GLOBAL	__end_of___lwmod
@@ -6870,7 +6885,7 @@ l1871:
 	movwf	(?___lwdiv)
 	line	30
 	
-l724:	
+l722:	
 	return
 	callstack 0
 GLOBAL	__end_of___lwdiv
@@ -6925,7 +6940,7 @@ _read_adc:
 ; Regs used in _read_adc: [wreg+status,2+status,0+btemp+1+pclath+cstack]
 	line	6
 	
-l2099:	
+l2095:	
 	movf	(read_adc@channel),w
 	movwf	(??_read_adc+0)+0
 	movlw	(02h)-1
@@ -6941,11 +6956,11 @@ u3045:
 	movwf	(31)	;volatile
 	line	7
 	
-l2101:	
+l2097:	
 	bsf	(249/8),(249)&7	;volatile
 	line	8
 	
-l2103:	
+l2099:	
 	asmopt push
 asmopt off
 movlw	6
@@ -6962,18 +6977,18 @@ asmopt pop
 
 	line	9
 	
-l196:	
+l194:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfsc	(249/8),(249)&7	;volatile
 	goto	u3051
 	goto	u3050
 u3051:
-	goto	l196
+	goto	l194
 u3050:
 	line	10
 	
-l2105:	
+l2101:	
 	movf	(30),w	;volatile
 	movwf	(??_read_adc+0)+0
 	clrf	(??_read_adc+0)+0+1
@@ -7000,14 +7015,14 @@ l2105:
 	movwf	(read_adc@adc_result+2)
 	line	11
 	
-l2107:	
+l2103:	
 	movlw	low(0E3h)
 	movwf	btemp+1
 	movf	btemp+1,w
 	andwf	(31),f	;volatile
 	line	12
 	
-l2109:	
+l2105:	
 	movlw	0x0
 	movwf	(___ftdiv@f2)
 	movlw	0x80
@@ -7042,7 +7057,7 @@ l2109:
 	movwf	(?_read_adc+2)
 	line	13
 	
-l199:	
+l197:	
 	return
 	callstack 0
 GLOBAL	__end_of_read_adc
@@ -7097,13 +7112,13 @@ _lcd_puts:
 ; Regs used in _lcd_puts: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	42
 	
-l2183:	
+l2179:	
 	bsf	(68/8),(68)&7	;volatile
 	line	43
-	goto	l2189
+	goto	l2185
 	line	45
 	
-l2185:	
+l2181:	
 	movf	(lcd_puts@s+1),w
 	movwf	btemp+1
 	movf	(lcd_puts@s),w
@@ -7112,7 +7127,7 @@ l2185:
 	fcall	_lcd_write
 	line	46
 	
-l2187:	
+l2183:	
 	movlw	01h
 	addwf	(lcd_puts@s),f
 	skipnc
@@ -7121,7 +7136,7 @@ l2187:
 	addwf	(lcd_puts@s+1),f
 	line	43
 	
-l2189:	
+l2185:	
 	movf	(lcd_puts@s+1),w
 	movwf	btemp+1
 	movf	(lcd_puts@s),w
@@ -7132,11 +7147,11 @@ l2189:
 	goto	u3141
 	goto	u3140
 u3141:
-	goto	l2185
+	goto	l2181
 u3140:
 	line	48
 	
-l156:	
+l154:	
 	return
 	callstack 0
 GLOBAL	__end_of_lcd_puts
@@ -7191,16 +7206,16 @@ _lcd_goto:
 	movwf	(lcd_goto@pos)
 	line	56
 	
-l2179:	
+l2175:	
 	bcf	(68/8),(68)&7	;volatile
 	line	57
 	
-l2181:	
+l2177:	
 	movf	(lcd_goto@pos),w
 	fcall	_lcd_write
 	line	58
 	
-l162:	
+l160:	
 	return
 	callstack 0
 GLOBAL	__end_of_lcd_goto
@@ -7317,7 +7332,7 @@ l1815:
 	bcf	(69/8),(69)&7	;volatile
 	line	34
 	
-l147:	
+l145:	
 	return
 	callstack 0
 GLOBAL	__end_of_lcd_write
@@ -7439,7 +7454,7 @@ u1961:
 u1960:
 	line	63
 	
-l168:	
+l166:	
 	return
 	callstack 0
 GLOBAL	__end_of_delay_LCD
@@ -7449,7 +7464,7 @@ GLOBAL	__end_of_delay_LCD
 
 ;; *************** function _get_pressure_value *****************
 ;; Defined at:
-;;		line 40 in file "../main.c"
+;;		line 39 in file "../main.c"
 ;; Parameters:    Size  Location     Type
 ;;  ADC_value       1    wreg     PTR 
 ;;		 -> ADC_value(6), 
@@ -7484,25 +7499,25 @@ GLOBAL	__end_of_delay_LCD
 ;;
 psect	text18,local,class=CODE,delta=2,merge=1,group=0
 	file	"../main.c"
-	line	40
+	line	39
 global __ptext18
 __ptext18:	;psect for function _get_pressure_value
 psect	text18
 	file	"../main.c"
-	line	40
+	line	39
 	
 _get_pressure_value:	
 ;incstack = 0
 	callstack 2
 ; Regs used in _get_pressure_value: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	41
+	line	40
 	movwf	(get_pressure_value@ADC_value)^080h
+	line	41
+	
+l1897:	
 	line	42
 	
-l1901:	
-	line	43
-	
-l1903:	
+l1899:	
 	movf	(get_pressure_value@ADC_value)^080h,w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
@@ -7514,9 +7529,9 @@ l1903:
 	incf	fsr0,f
 	movf	indf,w
 	movwf	(get_pressure_value@vout+2)^080h
-	line	45
+	line	44
 	
-l1905:	
+l1901:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0x99
@@ -7534,10 +7549,10 @@ l1905:
 	goto	u2461
 	goto	u2460
 u2461:
-	goto	l1911
+	goto	l1907
 u2460:
 	
-l1907:	
+l1903:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0xcc
@@ -7555,11 +7570,11 @@ l1907:
 	goto	u2471
 	goto	u2470
 u2471:
-	goto	l1911
+	goto	l1907
 u2470:
-	line	47
+	line	46
 	
-l1909:	
+l1905:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -7625,11 +7640,11 @@ l1909:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	47
+	goto	l1963
 	line	48
-	goto	l1967
-	line	49
 	
-l1911:	
+l1907:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0x19
@@ -7647,10 +7662,10 @@ l1911:
 	goto	u2481
 	goto	u2480
 u2481:
-	goto	l1917
+	goto	l1913
 u2480:
 	
-l1913:	
+l1909:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0x99
@@ -7668,11 +7683,11 @@ l1913:
 	goto	u2491
 	goto	u2490
 u2491:
-	goto	l1917
+	goto	l1913
 u2490:
-	line	51
+	line	50
 	
-l1915:	
+l1911:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -7731,11 +7746,11 @@ l1915:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	51
+	goto	l1963
 	line	52
-	goto	l1967
-	line	53
 	
-l1917:	
+l1913:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0x8c
@@ -7753,10 +7768,10 @@ l1917:
 	goto	u2501
 	goto	u2500
 u2501:
-	goto	l1923
+	goto	l1919
 u2500:
 	
-l1919:	
+l1915:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0x19
@@ -7774,11 +7789,11 @@ l1919:
 	goto	u2511
 	goto	u2510
 u2511:
-	goto	l1923
+	goto	l1919
 u2510:
-	line	55
+	line	54
 	
-l1921:	
+l1917:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -7837,11 +7852,11 @@ l1921:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	55
+	goto	l1963
 	line	56
-	goto	l1967
-	line	57
 	
-l1923:	
+l1919:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0xd9
@@ -7859,10 +7874,10 @@ l1923:
 	goto	u2521
 	goto	u2520
 u2521:
-	goto	l1929
+	goto	l1925
 u2520:
 	
-l1925:	
+l1921:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0x8c
@@ -7880,11 +7895,11 @@ l1925:
 	goto	u2531
 	goto	u2530
 u2531:
-	goto	l1929
+	goto	l1925
 u2530:
-	line	59
+	line	58
 	
-l1927:	
+l1923:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -7943,11 +7958,11 @@ l1927:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	59
+	goto	l1963
 	line	60
-	goto	l1967
-	line	61
 	
-l1929:	
+l1925:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0xc
@@ -7965,10 +7980,10 @@ l1929:
 	goto	u2541
 	goto	u2540
 u2541:
-	goto	l1935
+	goto	l1931
 u2540:
 	
-l1931:	
+l1927:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0xd9
@@ -7986,11 +8001,11 @@ l1931:
 	goto	u2551
 	goto	u2550
 u2551:
-	goto	l1935
+	goto	l1931
 u2550:
-	line	63
+	line	62
 	
-l1933:	
+l1929:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -8049,11 +8064,11 @@ l1933:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	63
+	goto	l1963
 	line	64
-	goto	l1967
-	line	65
 	
-l1935:	
+l1931:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0x39
@@ -8071,10 +8086,10 @@ l1935:
 	goto	u2561
 	goto	u2560
 u2561:
-	goto	l1941
+	goto	l1937
 u2560:
 	
-l1937:	
+l1933:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0xc
@@ -8092,11 +8107,11 @@ l1937:
 	goto	u2571
 	goto	u2570
 u2571:
-	goto	l1941
+	goto	l1937
 u2570:
-	line	67
+	line	66
 	
-l1939:	
+l1935:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -8155,11 +8170,11 @@ l1939:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	67
+	goto	l1963
 	line	68
-	goto	l1967
-	line	69
 	
-l1941:	
+l1937:	
 	movlw	0x33
 	movwf	(___ftge@ff1)
 	movlw	0x53
@@ -8177,10 +8192,10 @@ l1941:
 	goto	u2581
 	goto	u2580
 u2581:
-	goto	l1947
+	goto	l1943
 u2580:
 	
-l1943:	
+l1939:	
 	movlw	0x9a
 	movwf	(___ftge@ff1)
 	movlw	0x39
@@ -8198,11 +8213,11 @@ l1943:
 	goto	u2591
 	goto	u2590
 u2591:
-	goto	l1947
+	goto	l1943
 u2590:
-	line	71
+	line	70
 	
-l1945:	
+l1941:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -8261,11 +8276,11 @@ l1945:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	71
+	goto	l1963
 	line	72
-	goto	l1967
-	line	73
 	
-l1947:	
+l1943:	
 	movlw	0x33
 	movwf	(___ftge@ff1)
 	movlw	0x73
@@ -8283,10 +8298,10 @@ l1947:
 	goto	u2601
 	goto	u2600
 u2601:
-	goto	l1953
+	goto	l1949
 u2600:
 	
-l1949:	
+l1945:	
 	movlw	0x33
 	movwf	(___ftge@ff1)
 	movlw	0x53
@@ -8304,11 +8319,11 @@ l1949:
 	goto	u2611
 	goto	u2610
 u2611:
-	goto	l1953
+	goto	l1949
 u2610:
-	line	75
+	line	74
 	
-l1951:	
+l1947:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -8367,11 +8382,11 @@ l1951:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	75
+	goto	l1963
 	line	76
-	goto	l1967
-	line	77
 	
-l1953:	
+l1949:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0x8c
@@ -8389,10 +8404,10 @@ l1953:
 	goto	u2621
 	goto	u2620
 u2621:
-	goto	l1959
+	goto	l1955
 u2620:
 	
-l1955:	
+l1951:	
 	movlw	0x33
 	movwf	(___ftge@ff1)
 	movlw	0x73
@@ -8410,11 +8425,11 @@ l1955:
 	goto	u2631
 	goto	u2630
 u2631:
-	goto	l1959
+	goto	l1955
 u2630:
-	line	79
+	line	78
 	
-l1957:	
+l1953:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -8473,32 +8488,32 @@ l1957:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
+	line	79
+	goto	l1963
 	line	80
-	goto	l1967
-	line	81
 	
-l1959:	
-	movlw	0xcd
-	movwf	(___ftge@ff1)
-	movlw	0x9c
-	movwf	(___ftge@ff1+1)
-	movlw	0x40
-	movwf	(___ftge@ff1+2)
+l1955:	
 	movf	(get_pressure_value@vout)^080h,w
-	movwf	(___ftge@ff2)
+	movwf	(___ftge@ff1)
 	movf	(get_pressure_value@vout+1)^080h,w
-	movwf	(___ftge@ff2+1)
+	movwf	(___ftge@ff1+1)
 	movf	(get_pressure_value@vout+2)^080h,w
+	movwf	(___ftge@ff1+2)
+	movlw	0x1f
+	movwf	(___ftge@ff2)
+	movlw	0x9d
+	movwf	(___ftge@ff2+1)
+	movlw	0x40
 	movwf	(___ftge@ff2+2)
 	fcall	___ftge
-	btfss	status,0
+	btfsc	status,0
 	goto	u2641
 	goto	u2640
 u2641:
-	goto	l1965
+	goto	l1961
 u2640:
 	
-l1961:	
+l1957:	
 	movlw	0xcd
 	movwf	(___ftge@ff1)
 	movlw	0x8c
@@ -8516,11 +8531,11 @@ l1961:
 	goto	u2651
 	goto	u2650
 u2651:
-	goto	l1965
+	goto	l1961
 u2650:
-	line	83
+	line	82
 	
-l1963:	
+l1959:	
 	movf	(get_pressure_value@vout)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(interpolate@x)
@@ -8579,18 +8594,18 @@ l1963:
 	movf	(0+(?_interpolate)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(get_pressure_value@result)^080h
-	line	84
-	goto	l1967
-	line	86
+	line	83
+	goto	l1963
+	line	85
 	
-l1965:	
+l1961:	
 	movlw	09Ch
 	movwf	(get_pressure_value@result)^080h
 	movlw	0FFh
 	movwf	((get_pressure_value@result)^080h)+1
-	line	88
+	line	87
 	
-l1967:	
+l1963:	
 	movf	(get_pressure_value@result+1)^080h,w
 	movwf	(___awtoft@c+1)
 	movf	(get_pressure_value@result)^080h,w
@@ -8604,9 +8619,9 @@ l1967:
 	movwf	(?_get_pressure_value+1)
 	movf	(2+(?___awtoft)),w
 	movwf	(?_get_pressure_value+2)
-	line	89
+	line	88
 	
-l69:	
+l67:	
 	return
 	callstack 0
 GLOBAL	__end_of_get_pressure_value
@@ -8616,7 +8631,7 @@ GLOBAL	__end_of_get_pressure_value
 
 ;; *************** function _interpolate *****************
 ;; Defined at:
-;;		line 181 in file "../main.c"
+;;		line 180 in file "../main.c"
 ;; Parameters:    Size  Location     Type
 ;;  x               3   61[BANK0 ] float 
 ;;  x1              3   64[BANK0 ] float 
@@ -8654,18 +8669,18 @@ GLOBAL	__end_of_get_pressure_value
 ;; This function uses a non-reentrant model
 ;;
 psect	text19,local,class=CODE,delta=2,merge=1,group=0
-	line	181
+	line	180
 global __ptext19
 __ptext19:	;psect for function _interpolate
 psect	text19
 	file	"../main.c"
-	line	181
+	line	180
 	
 _interpolate:	
 ;incstack = 0
 	callstack 2
 ; Regs used in _interpolate: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-	line	183
+	line	182
 	
 l1799:	
 	movf	(interpolate@y1),w
@@ -8732,11 +8747,11 @@ l1799:
 	movwf	(___ftmul@f1+2)
 	fcall	___ftmul
 	movf	(0+(?___ftmul)),w
-	movwf	(_interpolate$755)
+	movwf	(_interpolate$754)
 	movf	(1+(?___ftmul)),w
-	movwf	(_interpolate$755+1)
+	movwf	(_interpolate$754+1)
 	movf	(2+(?___ftmul)),w
-	movwf	(_interpolate$755+2)
+	movwf	(_interpolate$754+2)
 	movf	(interpolate@y1+1),w
 	movwf	(___awtoft@c+1)
 	movf	(interpolate@y1),w
@@ -8750,11 +8765,11 @@ l1799:
 	movwf	(___ftadd@f2+1)
 	movf	(2+(?___awtoft)),w
 	movwf	(___ftadd@f2+2)
-	movf	(_interpolate$755),w
+	movf	(_interpolate$754),w
 	movwf	(___ftadd@f1)
-	movf	(_interpolate$755+1),w
+	movf	(_interpolate$754+1),w
 	movwf	(___ftadd@f1+1)
-	movf	(_interpolate$755+2),w
+	movf	(_interpolate$754+2),w
 	movwf	(___ftadd@f1+2)
 	fcall	___ftadd
 	movf	(0+(?___ftadd)),w
@@ -8768,9 +8783,9 @@ l1799:
 	movwf	(?_interpolate+1)
 	movf	(0+(?___fttol)),w
 	movwf	(?_interpolate)
-	line	184
+	line	183
 	
-l113:	
+l111:	
 	return
 	callstack 0
 GLOBAL	__end_of_interpolate
@@ -8856,7 +8871,7 @@ l1757:
 	movlw	low(0)
 	movwf	(?___fttol)
 
-	goto	l612
+	goto	l610
 	line	51
 	
 l1761:	
@@ -8965,7 +8980,7 @@ l1783:
 	goto	u2231
 	goto	u2230
 u2231:
-	goto	l619
+	goto	l617
 u2230:
 	goto	l1757
 	line	66
@@ -8986,7 +9001,7 @@ u2245:
 	subwf	(___fttol@exp1),f
 	line	68
 	
-l619:	
+l617:	
 	line	65
 	movf	((___fttol@exp1)),w
 	btfss	status,2
@@ -9033,7 +9048,7 @@ l1795:
 
 	line	73
 	
-l612:	
+l610:	
 	return
 	callstack 0
 GLOBAL	__end_of___fttol
@@ -9126,7 +9141,7 @@ l1751:
 	movwf	(?___ftsub+2)
 	line	26
 	
-l608:	
+l606:	
 	return
 	callstack 0
 GLOBAL	__end_of___ftsub
@@ -9245,7 +9260,7 @@ l1559:
 	movwf	(?___ftadd+1)
 	movf	(___ftadd@f2+2),w
 	movwf	(?___ftadd+2)
-	goto	l545
+	goto	l543
 	line	94
 	
 l1563:	
@@ -9254,7 +9269,7 @@ l1563:
 	goto	u1741
 	goto	u1740
 u1741:
-	goto	l548
+	goto	l546
 u1740:
 	
 l1565:	
@@ -9281,9 +9296,9 @@ u1761:
 	goto	l1569
 u1760:
 	
-l548:	
+l546:	
 	line	95
-	goto	l545
+	goto	l543
 	line	96
 	
 l1569:	
@@ -9296,27 +9311,27 @@ l1571:
 	goto	u1771
 	goto	u1770
 u1771:
-	goto	l549
+	goto	l547
 u1770:
 	line	98
 	
 l1573:	
 	bsf	(___ftadd@sign)+(7/8),(7)&7
 	
-l549:	
+l547:	
 	line	99
 	btfss	(___ftadd@f2+2),(23)&7
 	goto	u1781
 	goto	u1780
 u1781:
-	goto	l550
+	goto	l548
 u1780:
 	line	100
 	
 l1575:	
 	bsf	(___ftadd@sign)+(6/8),(6)&7
 	
-l550:	
+l548:	
 	line	101
 	bsf	(___ftadd@f1)+(15/8),(15)&7
 	line	102
@@ -9418,7 +9433,7 @@ l1591:
 u1841:
 	goto	l1587
 u1840:
-	goto	l559
+	goto	l557
 	line	117
 	
 l1593:	
@@ -9428,7 +9443,7 @@ l1593:
 	goto	u1851
 	goto	u1850
 u1851:
-	goto	l559
+	goto	l557
 u1850:
 	line	121
 	
@@ -9502,7 +9517,7 @@ u1901:
 u1900:
 	line	129
 	
-l559:	
+l557:	
 	btfss	(___ftadd@sign),(7)&7
 	goto	u1911
 	goto	u1910
@@ -9642,7 +9657,7 @@ l1623:
 	movwf	(?___ftadd+2)
 	line	148
 	
-l545:	
+l543:	
 	return
 	callstack 0
 GLOBAL	__end_of___ftadd
@@ -9727,7 +9742,7 @@ l1693:
 	movwf	(?___ftmul+1)
 	movlw	0x0
 	movwf	(?___ftmul+2)
-	goto	l591
+	goto	l589
 	line	69
 	
 l1697:	
@@ -9757,7 +9772,7 @@ l1699:
 	movwf	(?___ftmul+1)
 	movlw	0x0
 	movwf	(?___ftmul+2)
-	goto	l591
+	goto	l589
 	line	71
 	
 l1703:	
@@ -9980,7 +9995,7 @@ l1743:
 	movwf	(?___ftmul+2)
 	line	157
 	
-l591:	
+l589:	
 	return
 	callstack 0
 GLOBAL	__end_of___ftmul
@@ -10065,7 +10080,7 @@ l1647:
 	movwf	(?___ftdiv+1)
 	movlw	0x0
 	movwf	(?___ftdiv+2)
-	goto	l576
+	goto	l574
 	line	65
 	
 l1651:	
@@ -10095,7 +10110,7 @@ l1653:
 	movwf	(?___ftdiv+1)
 	movlw	0x0
 	movwf	(?___ftdiv+2)
-	goto	l576
+	goto	l574
 	line	67
 	
 l1657:	
@@ -10257,7 +10272,7 @@ l1687:
 	movwf	(?___ftdiv+2)
 	line	86
 	
-l576:	
+l574:	
 	return
 	callstack 0
 GLOBAL	__end_of___ftdiv
@@ -10357,7 +10372,7 @@ l1641:
 	movwf	(?___awtoft+2)
 	line	42
 	
-l518:	
+l516:	
 	return
 	callstack 0
 GLOBAL	__end_of___awtoft
@@ -10442,7 +10457,7 @@ l1521:
 	movwf	(?___ftpack+1)
 	movlw	0x0
 	movwf	(?___ftpack+2)
-	goto	l524
+	goto	l522
 	line	67
 	
 l1525:	
@@ -10542,7 +10557,7 @@ l1541:
 	goto	u1661
 	goto	u1660
 u1661:
-	goto	l535
+	goto	l533
 u1660:
 	
 l1543:	
@@ -10555,13 +10570,13 @@ u1671:
 	goto	l1539
 u1670:
 	
-l535:	
+l533:	
 	line	79
 	btfsc	(___ftpack@exp),(0)&7
 	goto	u1681
 	goto	u1680
 u1681:
-	goto	l536
+	goto	l534
 u1680:
 	line	80
 	
@@ -10573,7 +10588,7 @@ l1545:
 	movlw	0FFh
 	andwf	(___ftpack@arg+2),f
 	
-l536:	
+l534:	
 	line	81
 	clrc
 	rrf	(___ftpack@exp),f
@@ -10609,18 +10624,18 @@ l1549:
 	goto	u1701
 	goto	u1700
 u1701:
-	goto	l537
+	goto	l535
 u1700:
 	line	84
 	
 l1551:	
 	bsf	(___ftpack@arg)+(23/8),(23)&7
 	
-l537:	
+l535:	
 	line	85
 	line	86
 	
-l524:	
+l522:	
 	return
 	callstack 0
 GLOBAL	__end_of___ftpack
@@ -10756,14 +10771,14 @@ u2300:
 l1831:	
 	clrc
 	
-	goto	l585
+	goto	l583
 	
 l1833:	
 	setc
 	
 	line	13
 	
-l585:	
+l583:	
 	return
 	callstack 0
 GLOBAL	__end_of___ftge

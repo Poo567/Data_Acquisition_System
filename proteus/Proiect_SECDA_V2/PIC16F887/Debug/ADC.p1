@@ -171,7 +171,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" EECON1 equ 018Ch ;# ">
 "3546
 [; <" EECON2 equ 018Dh ;# ">
-"8 ../config.h
+"9 ../config.h
 [p x FOSC=INTRC_NOCLKOUT ]
 [p x WDTE=OFF ]
 [p x PWRTE=OFF ]
@@ -183,7 +183,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x FCMEN=OFF ]
 [p x LVP=OFF ]
 [p x DEBUG=OFF ]
-"9
+"10
 [p x BOR4V=BOR21V ]
 [p x WRT=HALF ]
 "6 ../ADC.h

@@ -1,46 +1,93 @@
 #include <xc.h> 
-#include "config.h"
-#include "ADC.h"
-#include "LCD.h"
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 
+__PROG_CONFIG(1,0x20D4); 	// config. uC 
+__PROG_CONFIG(2,0x0000); 	// config. uC 
+
+#define _XTAL_FREQ 8000000
 #define R 1000
 #define Vin 5
 #define invalid_value -100
 
 // Variables declaration
-float voltage[11] = {0.1, 0.3, 0.6, 1.1, 1.7, 2.2, 2.9, 3.3, 3.8, 4.4, 4.9}; 	//voltage table
-int pressure[11] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};	//pressure table
-uint32_t res[20] = {177, 241, 332, 467, 667, 973, 1188, 1459, 1802, 2238, 2796,3520, 4450, 5670, 7280, 9420, 16180, 28680, 52700, 100000}; //res table
-int8_t temp[20] = {100, 90, 80, 70, 60, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5, 0, -10, -20, -30, -40}; 	//temperature table
-char display_value[20]; // 20=nr of lcd columns
+float voltage[11] = {0.1, 0.3, 0.6, 1.1, 1.7, 2.2, 2.9, 3.3, 3.8, 4.4, 4.9};
+int pressure[11] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+uint32_t res[20] = {177, 241, 332, 467, 667, 973, 1188, 1459, 1802, 2238, 2796,3520, 4450, 5670, 7280, 9420, 16180, 28680, 52700, 100000};
+int8_t temp[20] = {100, 90, 80, 70, 60, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5, 0, -10, -20, -30, -40};
 
+double ADC_value[2]={0,0}; // pressure input, temp input
+double adc_result = 0;
+	
 // Functions prototypes
+void interrupt my_isr(void);
+void init_uC(void);
+void init_LCD(void);
+void lcd_clear(void);
+void lcd_puts(char * s);
+void lcd_goto(unsigned char pos);
 int interpolate(float x, float x1, float x2, int y1, int y2);
 float get_pressure_value(double * ADC_value);
 float get_temperature_value(double * ADC_value);
-void display_pressure(void);
-void display_temperature(void);
+void read_adc(int channel, double * buffer);
+void delay_LCD(unsigned long t);
 
 void main(void)
 {
-	 
+	int pressure = 0;
+    int temp = 0;
+	char pressure_str[];
+	char temp_str[];
+	char Rt_str[];
+	
     init_uC();
-	init_ADC();
 	init_LCD();
+	__delay_ms(2000);
 	
     while(1)
     {	
-		display_pressure();
-		display_temperature();
-		__delay_ms(200); 
+		lcd_clear();
+		
+		read_adc(0, &ADC_value[0]);
+		pressure = get_pressure_value(&ADC_value[0]);
+		if (pressure == invalid_value)
+			strcpy(temp_str, "P is out of bounds");
+		else
+			sprintf(pressure_str, "P = %d bar", pressure);
+		lcd_goto(0x80);	
+		lcd_puts(pressure_str);	
+		
+		read_adc(1, &ADC_value[1]);
+		temp = get_temperature_value(&ADC_value[1]);
+		if (temp == invalid_value)
+			strcpy(temp_str, "T is out of bounds");
+		else
+			sprintf(temp_str, "T = %d C", temp);
+		lcd_goto(0x94);	
+		lcd_puts(temp_str);	 
+		__delay_ms(400);
     }
 }
+
+void init_uC(void)
+{
+    TRISA =  0b00000011; 				// Pinul RA0, RA1 de intrare
+    PORTA =  0b00000000;			    // Initializam portul A cu valoarea 0
+    TRISD =  0b00000000; 				// Toti pinii portului D de iesire
+	ANSEL  =  0x00;						// Restul pinilor digitali
+	ANSELH  = 0x03;						// RA0(AN0), RA1(AN1) --> analogici
+    ADCON1 = 0b10000000;				// ADFM = 1 (Right justified)
+    ADCON0 = 0b01000001;				// ADCS1=0, ADCS0=1, CHS3=0, CHS2=0, CHS1=0, CHS0=0, GO/DONE=0, ADON=1
+    ADIE=1; ADIF=0;						
+    INTCON = INTCON | 0b11100000; 	   //   GIE=1, PIE=1, TMR0IE=1
+}  
 
 float get_pressure_value(double * ADC_value)
 {
     int result = 0;
     double vout = * ADC_value;
-		
     if (vout <= 0.3 && vout > 0.1)
     {
         result = interpolate(vout, voltage[0], voltage[1], pressure[0], pressure[1]);
@@ -92,7 +139,6 @@ float get_temperature_value(double * ADC_value)
     int result = 0;
     double vout = * ADC_value;
     uint32_t Rt=0;
-	
     Rt = (R * vout) / (Vin - vout);
     if ( Rt <= 241 && Rt > 177)
     {
@@ -179,35 +225,23 @@ float get_temperature_value(double * ADC_value)
 
 int interpolate(float x, float x1, float x2, int y1, int y2)
 {
-    return (y1 + (y2 - y1) / (x2 - x1) * (x - x1));  	
+    return (y1 + (y2 - y1) / (x2 - x1) * (x - x1));  
 }
 
-void display_pressure(void)
+void read_adc(int channel, double * buffer)
 {
-	int calculated_pressure = 0;
-		
-	ADC_value[0] = read_adc(0);
-	calculated_pressure = get_pressure_value(&ADC_value[0]);
-	if (calculated_pressure == invalid_value)
-		strcpy(display_value, "P is out of bounds");
-	else
-		sprintf(display_value, "P = %d bar          ", calculated_pressure);
-	lcd_goto(0x80);	
-	lcd_puts(display_value);	
+    ADCON0 = ADCON0 | (channel << 2);
+    GO = 1;
+    __delay_ms(2);
+    * buffer = 5 * adc_result / 1024.0;
+	ADCON0&= ~(0b111 << 2);
 }
 
-void display_temperature(void)
-{
-	int calculated_temp = 0;
-		
-	ADC_value[1] = read_adc(1);
-	calculated_temp = get_temperature_value(&ADC_value[1]);
-	if (calculated_temp == invalid_value)
-		strcpy(display_value, "T is out of bounds");
-	else
-		sprintf(display_value, "T = %d C          ", calculated_temp);
-	lcd_goto(0x94);	
-	lcd_puts(display_value);	
+void interrupt my_isr(void)	
+{	
+    if (ADIF == 1 && ADIE == 1)		// Întrerupere ADC
+    {	   
+		ADIF = 0;
+	    adc_result = ((ADRESH << 8) + ADRESL);
+	}
 }
-
-	

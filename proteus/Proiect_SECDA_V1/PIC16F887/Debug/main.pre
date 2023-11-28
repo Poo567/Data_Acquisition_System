@@ -1,5 +1,5 @@
 
-# 1 "../config.c"
+# 1 "../main.c"
 
 # 18 "D:\aplicatii\Microchip\xc8\v2.45\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2640,6 +2640,79 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
+# 7 "D:\aplicatii\Microchip\xc8\v2.45\pic\include\c90\stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 65
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *) __attribute__((__deprecated__));
+extern long atol(const char *);
+
+# 73
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom) __attribute__((__deprecated__));
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom) __attribute__((__deprecated__));
+
+# 85
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 104
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base) __attribute__((__deprecated__));
+extern char * utoa(char * buf, unsigned val, int base) __attribute__((__deprecated__));
+
+
+
+
+extern char * ltoa(char * buf, long val, int base) __attribute__((__deprecated__));
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status) __attribute__((__deprecated__));
+
 # 14 "D:\aplicatii\Microchip\xc8\v2.45\pic\include\c90\string.h"
 extern void * memcpy(void *, const void *, size_t);
 extern void * memmove(void *, const void *, size_t);
@@ -2672,18 +2745,240 @@ extern char * strichr(const char *, int) __attribute__((__deprecated__));
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int) __attribute__((__deprecated__));
 
-# 9 "../config.h"
+# 7 "../main.c"
 __config("__PROG_CONFIG", "pic", 1, 0x20D4);
 __config("__PROG_CONFIG", "pic", 2, 0x0000);
 
-# 20
-void init_uC(void);
+# 16
+float voltage[11] = {0.1, 0.3, 0.6, 1.1, 1.7, 2.2, 2.9, 3.3, 3.8, 4.4, 4.9};
+int pressure[11] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+uint32_t res[20] = {177, 241, 332, 467, 667, 973, 1188, 1459, 1802, 2238, 2796,3520, 4450, 5670, 7280, 9420, 16180, 28680, 52700, 100000};
+int8_t temp[20] = {100, 90, 80, 70, 60, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5, 0, -10, -20, -30, -40};
 
-# 3 "../config.c"
+double ADC_value[2]={0,0};
+double adc_result = 0;
+
+
+void interrupt my_isr(void);
+void init_uC(void);
+void init_LCD(void);
+void lcd_clear(void);
+void lcd_puts(char * s);
+void lcd_goto(unsigned char pos);
+int interpolate(float x, float x1, float x2, int y1, int y2);
+float get_pressure_value(double * ADC_value);
+float get_temperature_value(double * ADC_value);
+void read_adc(int channel, double * buffer);
+void delay_LCD(unsigned long t);
+
+void main(void)
+{
+int pressure = 0;
+int temp = 0;
+char pressure_str[];
+char temp_str[];
+char Rt_str[];
+
+init_uC();
+init_LCD();
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+
+while(1)
+{
+lcd_clear();
+
+read_adc(0, &ADC_value[0]);
+pressure = get_pressure_value(&ADC_value[0]);
+if (pressure == -100)
+strcpy(temp_str, "P is out of bounds");
+else
+sprintf(pressure_str, "P = %d bar", pressure);
+lcd_goto(0x80);
+lcd_puts(pressure_str);
+
+read_adc(1, &ADC_value[1]);
+temp = get_temperature_value(&ADC_value[1]);
+if (temp == -100)
+strcpy(temp_str, "T is out of bounds");
+else
+sprintf(temp_str, "T = %d C", temp);
+lcd_goto(0x94);
+lcd_puts(temp_str);
+_delay((unsigned long)((400)*(8000000/4000.0)));
+}
+}
+
 void init_uC(void)
 {
 TRISA = 0b00000011;
 PORTA = 0b00000000;
 TRISD = 0b00000000;
+ANSEL = 0x00;
+ANSELH = 0x03;
+ADCON1 = 0b10000000;
+ADCON0 = 0b01000001;
+ADIE=1; ADIF=0;
+INTCON = INTCON | 0b11100000;
 }
 
+float get_pressure_value(double * ADC_value)
+{
+int result = 0;
+double vout = * ADC_value;
+if (vout <= 0.3 && vout > 0.1)
+{
+result = interpolate(vout, voltage[0], voltage[1], pressure[0], pressure[1]);
+}
+else if (vout <= 0.6 && vout > 0.3)
+{
+result = interpolate(vout, voltage[1], voltage[2], pressure[1], pressure[2]);
+}
+else if (vout <= 1.1 && vout > 0.6)
+{
+result = interpolate(vout, voltage[2], voltage[3], pressure[2], pressure[3]);
+}
+else if (vout <= 1.7 && vout > 1.1)
+{
+result = interpolate(vout, voltage[3], voltage[4], pressure[3], pressure[4]);
+}
+else if (vout <= 2.2 && vout > 1.7)
+{
+result = interpolate(vout, voltage[4], voltage[5], pressure[4], pressure[5]);
+}
+else if (vout <= 2.9 && vout > 2.2)
+{
+result = interpolate(vout, voltage[5], voltage[6], pressure[5], pressure[6]);
+}
+else if (vout <= 3.3 && vout > 2.9)
+{
+result = interpolate(vout, voltage[6], voltage[7], pressure[6], pressure[7]);
+}
+else if (vout <= 3.8 && vout > 3.3)
+{
+result = interpolate(vout, voltage[7], voltage[8], pressure[7], pressure[8]);
+}
+else if (vout <= 4.4 && vout > 3.8)
+{
+result = interpolate(vout, voltage[8], voltage[9], pressure[8], pressure[9]);
+}
+else if (vout <= 4.9 && vout > 4.4)
+{
+result = interpolate(vout, voltage[9], voltage[10], pressure[9], pressure[10]);
+}
+else{
+result = -100;
+}
+return result;
+}
+
+float get_temperature_value(double * ADC_value)
+{
+int result = 0;
+double vout = * ADC_value;
+uint32_t Rt=0;
+Rt = (1000 * vout) / (5 - vout);
+if ( Rt <= 241 && Rt > 177)
+{
+result = interpolate(Rt, res[0], res[1], temp[0], temp[1]);
+}
+else if ( Rt <= 332 && Rt > 241)
+{
+result = interpolate(Rt, res[1], res[2], temp[1], temp[2]);
+}
+else if ( Rt <= 467 && Rt > 332)
+{
+result = interpolate(Rt, res[2], res[3], temp[2], temp[3]);
+}
+else if (Rt <= 667 && Rt > 467)
+{
+result = interpolate(Rt, res[3], res[4], temp[3], temp[4]);
+}
+else if (Rt <= 973 && Rt > 667)
+{
+result = interpolate(Rt, res[4], res[5], temp[4], temp[5]);
+}
+else if (Rt <= 1188 && Rt > 973)
+{
+result = interpolate(Rt, res[5], res[6], temp[5], temp[6]);
+}
+else if (Rt <= 1459 && Rt > 1188)
+{
+result = interpolate(Rt, res[6], res[7], temp[6], temp[7]);
+}
+else if (Rt <= 1802 && Rt > 1459)
+{
+result = interpolate(Rt, res[7], res[8], temp[7], temp[8]);
+}
+else if (Rt <= 2238 && Rt > 1802)
+{
+result = interpolate(Rt, res[8], res[9], temp[8], temp[9]);
+}
+else if (Rt <= 2796 && Rt > 2238)
+{
+result = interpolate(Rt, res[9], res[10], temp[9], temp[10]);
+}
+else if (Rt <= 3520 && Rt > 2796)
+{
+result = interpolate(Rt, res[10], res[11], temp[10], temp[11]);
+}
+else if (Rt <= 4450 && Rt > 3520)
+{
+result = interpolate(Rt, res[11], res[12], temp[11], temp[12]);
+}
+else if (Rt <= 5670 && Rt > 4450)
+{
+result = interpolate(Rt, res[12], res[13], temp[12], temp[13]);
+}
+else if (Rt <= 7280 && Rt > 5670)
+{
+result = interpolate(Rt, res[13], res[14], temp[13], temp[14]);
+}
+else if (Rt <= 9420 && Rt > 7280)
+{
+result = interpolate(Rt, res[14], res[15], temp[14], temp[15]);
+}
+else if (Rt <= 16180 && Rt > 9420)
+{
+result = interpolate(Rt, res[15], res[16], temp[15], temp[16]);
+}
+else if (Rt <= 28680 && Rt > 16180)
+{
+result = interpolate(Rt, res[16], res[17], temp[16], temp[17]);
+}
+else if (Rt <= 52700 && Rt > 28680)
+{
+result = interpolate(Rt, res[17], res[18], temp[17], temp[18]);
+}
+else if (Rt <= 100000 && Rt > 52700)
+{
+result = interpolate(Rt, res[18], res[19], temp[18], temp[19]);
+}
+else
+{
+result = -100;
+}
+return result;
+}
+
+int interpolate(float x, float x1, float x2, int y1, int y2)
+{
+return (y1 + (y2 - y1) / (x2 - x1) * (x - x1));
+}
+
+void read_adc(int channel, double * buffer)
+{
+ADCON0 = ADCON0 | (channel << 2);
+GO = 1;
+_delay((unsigned long)((2)*(8000000/4000.0)));
+* buffer = 5 * adc_result / 1024.0;
+ADCON0&= ~(0b111 << 2);
+}
+
+void interrupt my_isr(void)
+{
+if (ADIF == 1 && ADIE == 1)
+{
+ADIF = 0;
+adc_result = ((ADRESH << 8) + ADRESL);
+}
+}

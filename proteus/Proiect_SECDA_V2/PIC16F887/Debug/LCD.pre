@@ -2672,11 +2672,11 @@ extern char * strichr(const char *, int) __attribute__((__deprecated__));
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int) __attribute__((__deprecated__));
 
-# 8 "../config.h"
+# 9 "../config.h"
 __config("__PROG_CONFIG", "pic", 1, 0x20D4);
 __config("__PROG_CONFIG", "pic", 2, 0x0000);
 
-# 19
+# 20
 void init_uC(void);
 
 # 6 "../LCD.h"

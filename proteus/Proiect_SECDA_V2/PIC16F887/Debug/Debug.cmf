@@ -13,48 +13,48 @@
 %PSECTS
 $Debug.obj
 cinit CODE 0 7C5 7C5 3B 2 1
-text1 CODE 0 116F 116F 8 2 1
+text1 CODE 0 10EF 10EF 8 2 1
 text2 CODE 0 88D 88D BF 2 1
-text3 CODE 0 1167 1167 8 2 1
+text3 CODE 0 10E1 10E1 6 2 1
 text4 CODE 0 5 5 A 2 1
-text5 CODE 0 14BF 14BF 6B 2 1
+text5 CODE 0 13D0 13D0 6B 2 1
 text6 CODE 0 F F 158 2 1
-text7 CODE 0 1221 1221 27 2 1
-text8 CODE 0 1455 1455 6A 2 1
-text9 CODE 0 1188 1188 1C 2 1
+text7 CODE 0 11A1 11A1 27 2 1
+text8 CODE 0 14A7 14A7 6C 2 1
+text9 CODE 0 1108 1108 1C 2 1
 text10 CODE 0 1742 1742 BE 2 1
-text11 CODE 0 12FE 12FE 32 2 1
-text12 CODE 0 1368 1368 3C 2 1
-text13 CODE 0 13F4 13F4 61 2 1
-text14 CODE 0 11FF 11FF 22 2 1
-text15 CODE 0 115F 115F 8 2 1
-text16 CODE 0 12CD 12CD 31 2 1
-text17 CODE 0 1330 1330 38 2 1
+text11 CODE 0 1279 1279 32 2 1
+text12 CODE 0 12E3 12E3 3C 2 1
+text13 CODE 0 136F 136F 61 2 1
+text14 CODE 0 117F 117F 22 2 1
+text15 CODE 0 10E7 10E7 8 2 1
+text16 CODE 0 1248 1248 31 2 1
+text17 CODE 0 12AB 12AB 38 2 1
 text18 CODE 0 C65 C65 39B 2 1
-text19 CODE 0 80A 80A 83 2 1
-text20 CODE 0 1596 1596 77 2 1
-text21 CODE 0 11C1 11C1 1D 2 1
+text19 CODE 0 158A 158A 83 2 1
+text20 CODE 0 1513 1513 77 2 1
+text21 CODE 0 1141 1141 1D 2 1
 text22 CODE 0 94C 94C FD 2 1
 text23 CODE 0 169B 169B A7 2 1
 text24 CODE 0 160D 160D 8E 2 1
-text25 CODE 0 11A4 11A4 1D 2 1
-text26 CODE 0 152A 152A 6C 2 1
-text27 CODE 0 1272 1272 2D 2 1
-maintext CODE 0 129F 129F 2E 2 1
+text25 CODE 0 1124 1124 1D 2 1
+text26 CODE 0 143B 143B 6C 2 1
+text27 CODE 0 121B 121B 2D 2 1
+maintext CODE 0 11C8 11C8 29 2 1
 cstackCOMMON COMMON 1 70 70 E 1 1
 cstackBANK0 BANK0 1 20 20 50 1 1
 cstackBANK1 BANK1 1 CA CA 12 1 1
-inittext CODE 0 1177 1177 11 2 1
+inittext CODE 0 10F7 10F7 11 2 1
 bssBANK1 BANK1 1 DC DC 6 1 1
 bssBANK3 BANK3 1 1B1 1B1 14 1 1
-idataBANK1 CODE 0 1248 1248 2A 2 1
-idataBANK2 CODE 0 13A4 13A4 50 2 1
-idataBANK3 CODE 0 11DE 11DE 21 2 1
-strings STRING 0 1000 1000 71 2 1
+idataBANK1 CODE 0 11F1 11F1 2A 2 1
+idataBANK2 CODE 0 131F 131F 50 2 1
+idataBANK3 CODE 0 115E 115E 21 2 1
+strings STRING 0 800 800 85 2 1
 dataBANK1 BANK1 1 A0 A0 2A 1 1
 dataBANK2 BANK2 1 110 110 50 1 1
 dataBANK3 BANK3 1 190 190 21 1 1
-clrtext CODE 0 802 802 8 2 1
+clrtext CODE 0 885 885 8 2 1
 text6_split_1 CODE 0 167 167 65E 2 1
 text6_split_2 CODE 0 A49 A49 21C 2 1
 config CONFIG 4 2007 2007 2 2 1
@@ -74,17 +74,14 @@ BANK1 E2-EF 1
 BANK2 160-16F 1
 BANK3 1C5-1EF 1
 CONST 3-4 2
-CONST 800-801 2
-CONST 1071-115E 2
+CONST 1000-10E0 2
 CONST 1800-1FFF 2
 ENTRY 3-4 2
-ENTRY 800-801 2
-ENTRY 1071-115E 2
+ENTRY 1000-10E0 2
 ENTRY 1800-1FFF 2
 IDLOC 2000-2003 2
 CODE 3-4 2
-CODE 800-801 2
-CODE 1071-115E 2
+CODE 1000-10E0 2
 CODE 1800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -92,12 +89,10 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 3-4 2
-STRCODE 800-801 2
-STRCODE 1071-115E 2
+STRCODE 1000-10E0 2
 STRCODE 1800-1FFF 2
 STRING 3-4 2
-STRING 800-801 2
-STRING 1071-115E 2
+STRING 1000-10E0 2
 STRING 1800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -113,214 +108,214 @@ STRING 1800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $Debug.obj
-7C5 cinit CODE >1354:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7C5 cinit CODE >1357:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7C5 cinit CODE >1432:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7C6 cinit CODE >1433:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7C7 cinit CODE >1434:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7C8 cinit CODE >1435:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7C9 cinit CODE >1436:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7CA cinit CODE >1437:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7CB cinit CODE >1438:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7CC cinit CODE >1439:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7CD cinit CODE >1440:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7CE cinit CODE >1441:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D3 cinit CODE >1445:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D4 cinit CODE >1446:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D5 cinit CODE >1447:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D6 cinit CODE >1448:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D7 cinit CODE >1449:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D8 cinit CODE >1450:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7D9 cinit CODE >1451:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7DA cinit CODE >1452:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7DB cinit CODE >1453:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E0 cinit CODE >1457:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E1 cinit CODE >1458:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E2 cinit CODE >1459:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E3 cinit CODE >1460:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E4 cinit CODE >1461:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E5 cinit CODE >1462:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E6 cinit CODE >1463:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E7 cinit CODE >1464:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E8 cinit CODE >1465:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7E9 cinit CODE >1466:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7EE cinit CODE >1485:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7EF cinit CODE >1486:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F0 cinit CODE >1487:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F1 cinit CODE >1488:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F2 cinit CODE >1489:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F5 cinit CODE >1492:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F6 cinit CODE >1493:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F7 cinit CODE >1494:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F8 cinit CODE >1495:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7F9 cinit CODE >1496:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7FA cinit CODE >1497:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7FB cinit CODE >1498:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7FC cinit CODE >1504:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7FC cinit CODE >1506:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-7FD cinit CODE >1507:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-A49 text6_split_2 CODE >158:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-A53 text6_split_2 CODE >158:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-A57 text6_split_2 CODE >158:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-A65 text6_split_2 CODE >158:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-A69 text6_split_2 CODE >158:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-A6D text6_split_2 CODE >160:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-AC6 text6_split_2 CODE >162:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-AD0 text6_split_2 CODE >162:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-AD4 text6_split_2 CODE >162:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-AE2 text6_split_2 CODE >162:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-AE6 text6_split_2 CODE >162:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-AEA text6_split_2 CODE >164:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-B43 text6_split_2 CODE >166:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-B4D text6_split_2 CODE >166:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-B51 text6_split_2 CODE >166:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-B5F text6_split_2 CODE >166:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-B63 text6_split_2 CODE >166:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-B67 text6_split_2 CODE >168:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BC0 text6_split_2 CODE >170:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BC7 text6_split_2 CODE >170:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BCB text6_split_2 CODE >170:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BCF text6_split_2 CODE >170:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BDD text6_split_2 CODE >170:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BE1 text6_split_2 CODE >170:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-BE5 text6_split_2 CODE >172:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C4E text6_split_2 CODE >173:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C4F text6_split_2 CODE >176:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C55 text6_split_2 CODE >178:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C64 text6_split_2 CODE >179:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-167 text6_split_1 CODE >106:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-171 text6_split_1 CODE >106:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-175 text6_split_1 CODE >106:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-183 text6_split_1 CODE >106:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-187 text6_split_1 CODE >106:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-18B text6_split_1 CODE >108:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1E6 text6_split_1 CODE >110:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1F0 text6_split_1 CODE >110:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1F4 text6_split_1 CODE >110:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-202 text6_split_1 CODE >110:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-206 text6_split_1 CODE >110:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-20A text6_split_1 CODE >112:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-263 text6_split_1 CODE >114:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-26D text6_split_1 CODE >114:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-271 text6_split_1 CODE >114:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-27F text6_split_1 CODE >114:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-283 text6_split_1 CODE >114:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-287 text6_split_1 CODE >116:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-2E0 text6_split_1 CODE >118:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-2EA text6_split_1 CODE >118:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-2EE text6_split_1 CODE >118:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-2FC text6_split_1 CODE >118:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-300 text6_split_1 CODE >118:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-304 text6_split_1 CODE >120:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-35D text6_split_1 CODE >122:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-367 text6_split_1 CODE >122:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-36B text6_split_1 CODE >122:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-379 text6_split_1 CODE >122:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-37D text6_split_1 CODE >122:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-381 text6_split_1 CODE >124:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-3DA text6_split_1 CODE >126:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-3E4 text6_split_1 CODE >126:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-3E8 text6_split_1 CODE >126:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-3F6 text6_split_1 CODE >126:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-3FA text6_split_1 CODE >126:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-3FE text6_split_1 CODE >128:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-457 text6_split_1 CODE >130:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-461 text6_split_1 CODE >130:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-465 text6_split_1 CODE >130:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-473 text6_split_1 CODE >130:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-477 text6_split_1 CODE >130:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-47B text6_split_1 CODE >132:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-4D4 text6_split_1 CODE >134:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-4DE text6_split_1 CODE >134:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-4E2 text6_split_1 CODE >134:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-4F0 text6_split_1 CODE >134:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-4F4 text6_split_1 CODE >134:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-4F8 text6_split_1 CODE >136:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-551 text6_split_1 CODE >138:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-55B text6_split_1 CODE >138:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-55F text6_split_1 CODE >138:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-56D text6_split_1 CODE >138:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-571 text6_split_1 CODE >138:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-575 text6_split_1 CODE >140:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-5CE text6_split_1 CODE >142:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-5D8 text6_split_1 CODE >142:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-5DC text6_split_1 CODE >142:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-5EA text6_split_1 CODE >142:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-5EE text6_split_1 CODE >142:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-5F2 text6_split_1 CODE >144:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-64B text6_split_1 CODE >146:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-655 text6_split_1 CODE >146:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-659 text6_split_1 CODE >146:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-667 text6_split_1 CODE >146:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-66B text6_split_1 CODE >146:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-66F text6_split_1 CODE >148:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-6C8 text6_split_1 CODE >150:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-6D2 text6_split_1 CODE >150:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-6D6 text6_split_1 CODE >150:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-6E4 text6_split_1 CODE >150:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-6E8 text6_split_1 CODE >150:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-6EC text6_split_1 CODE >152:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-745 text6_split_1 CODE >154:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-74F text6_split_1 CODE >154:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-753 text6_split_1 CODE >154:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-761 text6_split_1 CODE >154:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-765 text6_split_1 CODE >154:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-769 text6_split_1 CODE >156:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1272 text27 CODE >4:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1272 text27 CODE >6:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1274 text27 CODE >7:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1278 text27 CODE >7:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-127D text27 CODE >7:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1281 text27 CODE >8:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1283 text27 CODE >9:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1287 text27 CODE >9:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-128C text27 CODE >9:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1290 text27 CODE >10:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1292 text27 CODE >11:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1294 text27 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-1296 text27 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-129A text27 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
-152A text26 CODE >62:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-152A text26 CODE >64:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1530 text26 CODE >64:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1532 text26 CODE >65:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1539 text26 CODE >67:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-153D text26 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-153E text26 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1543 text26 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1545 text26 CODE >66:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-154A text26 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-154E text26 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1551 text26 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1555 text26 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1558 text26 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1559 text26 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-155E text26 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1560 text26 CODE >70:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1565 text26 CODE >75:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1567 text26 CODE >75:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1569 text26 CODE >76:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-156B text26 CODE >77:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-156C text26 CODE >77:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1571 text26 CODE >77:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1573 text26 CODE >75:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1575 text26 CODE >79:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1577 text26 CODE >80:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-157D text26 CODE >81:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-157F text26 CODE >82:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1584 text26 CODE >82:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1589 text26 CODE >82:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1591 text26 CODE >83:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1594 text26 CODE >84:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-1595 text26 CODE >86:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
-11A4 text25 CODE >32:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11A4 text25 CODE >36:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11A5 text25 CODE >37:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11A7 text25 CODE >38:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11AA text25 CODE >38:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11AC text25 CODE >39:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11AE text25 CODE >41:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
-11C0 text25 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+7C5 cinit CODE >1373:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7C5 cinit CODE >1376:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7C5 cinit CODE >1451:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7C6 cinit CODE >1452:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7C7 cinit CODE >1453:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7C8 cinit CODE >1454:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7C9 cinit CODE >1455:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7CA cinit CODE >1456:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7CB cinit CODE >1457:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7CC cinit CODE >1458:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7CD cinit CODE >1459:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7CE cinit CODE >1460:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D3 cinit CODE >1464:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D4 cinit CODE >1465:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D5 cinit CODE >1466:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D6 cinit CODE >1467:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D7 cinit CODE >1468:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D8 cinit CODE >1469:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7D9 cinit CODE >1470:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7DA cinit CODE >1471:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7DB cinit CODE >1472:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E0 cinit CODE >1476:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E1 cinit CODE >1477:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E2 cinit CODE >1478:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E3 cinit CODE >1479:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E4 cinit CODE >1480:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E5 cinit CODE >1481:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E6 cinit CODE >1482:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E7 cinit CODE >1483:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E8 cinit CODE >1484:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7E9 cinit CODE >1485:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7EE cinit CODE >1504:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7EF cinit CODE >1505:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F0 cinit CODE >1506:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F1 cinit CODE >1507:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F2 cinit CODE >1508:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F5 cinit CODE >1511:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F6 cinit CODE >1512:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F7 cinit CODE >1513:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F8 cinit CODE >1514:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7F9 cinit CODE >1515:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7FA cinit CODE >1516:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7FB cinit CODE >1517:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7FC cinit CODE >1523:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7FC cinit CODE >1525:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+7FD cinit CODE >1526:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+A49 text6_split_2 CODE >157:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+A53 text6_split_2 CODE >157:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+A57 text6_split_2 CODE >157:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+A65 text6_split_2 CODE >157:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+A69 text6_split_2 CODE >157:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+A6D text6_split_2 CODE >159:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+AC6 text6_split_2 CODE >161:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+AD0 text6_split_2 CODE >161:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+AD4 text6_split_2 CODE >161:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+AE2 text6_split_2 CODE >161:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+AE6 text6_split_2 CODE >161:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+AEA text6_split_2 CODE >163:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+B43 text6_split_2 CODE >165:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+B4D text6_split_2 CODE >165:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+B51 text6_split_2 CODE >165:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+B5F text6_split_2 CODE >165:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+B63 text6_split_2 CODE >165:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+B67 text6_split_2 CODE >167:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BC0 text6_split_2 CODE >169:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BC7 text6_split_2 CODE >169:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BCB text6_split_2 CODE >169:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BCF text6_split_2 CODE >169:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BDD text6_split_2 CODE >169:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BE1 text6_split_2 CODE >169:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+BE5 text6_split_2 CODE >171:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C4E text6_split_2 CODE >172:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C4F text6_split_2 CODE >175:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C55 text6_split_2 CODE >177:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C64 text6_split_2 CODE >178:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+167 text6_split_1 CODE >105:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+171 text6_split_1 CODE >105:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+175 text6_split_1 CODE >105:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+183 text6_split_1 CODE >105:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+187 text6_split_1 CODE >105:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+18B text6_split_1 CODE >107:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1E6 text6_split_1 CODE >109:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1F0 text6_split_1 CODE >109:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1F4 text6_split_1 CODE >109:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+202 text6_split_1 CODE >109:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+206 text6_split_1 CODE >109:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+20A text6_split_1 CODE >111:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+263 text6_split_1 CODE >113:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+26D text6_split_1 CODE >113:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+271 text6_split_1 CODE >113:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+27F text6_split_1 CODE >113:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+283 text6_split_1 CODE >113:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+287 text6_split_1 CODE >115:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+2E0 text6_split_1 CODE >117:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+2EA text6_split_1 CODE >117:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+2EE text6_split_1 CODE >117:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+2FC text6_split_1 CODE >117:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+300 text6_split_1 CODE >117:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+304 text6_split_1 CODE >119:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+35D text6_split_1 CODE >121:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+367 text6_split_1 CODE >121:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+36B text6_split_1 CODE >121:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+379 text6_split_1 CODE >121:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+37D text6_split_1 CODE >121:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+381 text6_split_1 CODE >123:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+3DA text6_split_1 CODE >125:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+3E4 text6_split_1 CODE >125:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+3E8 text6_split_1 CODE >125:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+3F6 text6_split_1 CODE >125:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+3FA text6_split_1 CODE >125:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+3FE text6_split_1 CODE >127:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+457 text6_split_1 CODE >129:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+461 text6_split_1 CODE >129:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+465 text6_split_1 CODE >129:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+473 text6_split_1 CODE >129:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+477 text6_split_1 CODE >129:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+47B text6_split_1 CODE >131:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+4D4 text6_split_1 CODE >133:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+4DE text6_split_1 CODE >133:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+4E2 text6_split_1 CODE >133:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+4F0 text6_split_1 CODE >133:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+4F4 text6_split_1 CODE >133:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+4F8 text6_split_1 CODE >135:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+551 text6_split_1 CODE >137:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+55B text6_split_1 CODE >137:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+55F text6_split_1 CODE >137:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+56D text6_split_1 CODE >137:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+571 text6_split_1 CODE >137:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+575 text6_split_1 CODE >139:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+5CE text6_split_1 CODE >141:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+5D8 text6_split_1 CODE >141:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+5DC text6_split_1 CODE >141:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+5EA text6_split_1 CODE >141:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+5EE text6_split_1 CODE >141:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+5F2 text6_split_1 CODE >143:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+64B text6_split_1 CODE >145:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+655 text6_split_1 CODE >145:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+659 text6_split_1 CODE >145:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+667 text6_split_1 CODE >145:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+66B text6_split_1 CODE >145:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+66F text6_split_1 CODE >147:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+6C8 text6_split_1 CODE >149:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+6D2 text6_split_1 CODE >149:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+6D6 text6_split_1 CODE >149:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+6E4 text6_split_1 CODE >149:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+6E8 text6_split_1 CODE >149:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+6EC text6_split_1 CODE >151:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+745 text6_split_1 CODE >153:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+74F text6_split_1 CODE >153:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+753 text6_split_1 CODE >153:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+761 text6_split_1 CODE >153:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+765 text6_split_1 CODE >153:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+769 text6_split_1 CODE >155:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+121B text27 CODE >4:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+121B text27 CODE >6:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+121D text27 CODE >7:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+1221 text27 CODE >7:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+1226 text27 CODE >7:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+122A text27 CODE >8:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+122C text27 CODE >9:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+1230 text27 CODE >9:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+1235 text27 CODE >9:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+1239 text27 CODE >10:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+123B text27 CODE >11:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+123D text27 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+123F text27 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+1243 text27 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftge.c
+143B text26 CODE >62:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+143B text26 CODE >64:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1441 text26 CODE >64:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1443 text26 CODE >65:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+144A text26 CODE >67:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+144E text26 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+144F text26 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1454 text26 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1456 text26 CODE >66:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+145B text26 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+145F text26 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1462 text26 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1466 text26 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1469 text26 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+146A text26 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+146F text26 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1471 text26 CODE >70:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1476 text26 CODE >75:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1478 text26 CODE >75:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+147A text26 CODE >76:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+147C text26 CODE >77:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+147D text26 CODE >77:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1482 text26 CODE >77:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1484 text26 CODE >75:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1486 text26 CODE >79:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1488 text26 CODE >80:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+148E text26 CODE >81:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1490 text26 CODE >82:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1495 text26 CODE >82:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+149A text26 CODE >82:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+14A2 text26 CODE >83:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+14A5 text26 CODE >84:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+14A6 text26 CODE >86:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\float.c
+1124 text25 CODE >32:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+1124 text25 CODE >36:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+1125 text25 CODE >37:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+1127 text25 CODE >38:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+112A text25 CODE >38:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+112C text25 CODE >39:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+112E text25 CODE >41:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
+1140 text25 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
 160D text24 CODE >56:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftdiv.c
 160D text24 CODE >63:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftdiv.c
 1613 text24 CODE >63:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftdiv.c
@@ -479,165 +474,165 @@ A2E text22 CODE >143:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fta
 A31 text22 CODE >144:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftadd.c
 A33 text22 CODE >146:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftadd.c
 A48 text22 CODE >148:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftadd.c
-11C1 text21 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
-11C1 text21 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
-11C4 text21 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
-11C6 text21 CODE >23:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
-11C8 text21 CODE >25:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
-11DD text21 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
-1596 text20 CODE >44:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-1596 text20 CODE >49:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-159C text20 CODE >49:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15A3 text20 CODE >50:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15AC text20 CODE >51:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15B3 text20 CODE >51:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15B8 text20 CODE >51:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15BC text20 CODE >52:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15BD text20 CODE >53:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15C3 text20 CODE >54:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15CA text20 CODE >55:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15CC text20 CODE >56:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15CE text20 CODE >57:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15D1 text20 CODE >57:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15D3 text20 CODE >60:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15D4 text20 CODE >60:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15DA text20 CODE >60:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15DC text20 CODE >61:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15E3 text20 CODE >63:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15E5 text20 CODE >63:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15E7 text20 CODE >65:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15E7 text20 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15EA text20 CODE >66:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15EC text20 CODE >66:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15F3 text20 CODE >67:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15F5 text20 CODE >65:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15F6 text20 CODE >70:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15F9 text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-15FE text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-1600 text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-1602 text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-1604 text20 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-160C text20 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
-80A text19 CODE >181:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-80A text19 CODE >183:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-80E text19 CODE >183:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-88C text19 CODE >184:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1141 text21 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
+1141 text21 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
+1144 text21 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
+1146 text21 CODE >23:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
+1148 text21 CODE >25:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
+115D text21 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\ftsub.c
+1513 text20 CODE >44:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1513 text20 CODE >49:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1519 text20 CODE >49:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1520 text20 CODE >50:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1529 text20 CODE >51:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1530 text20 CODE >51:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1535 text20 CODE >51:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1539 text20 CODE >52:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+153A text20 CODE >53:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1540 text20 CODE >54:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1547 text20 CODE >55:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1549 text20 CODE >56:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+154B text20 CODE >57:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+154E text20 CODE >57:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1550 text20 CODE >60:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1551 text20 CODE >60:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1557 text20 CODE >60:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1559 text20 CODE >61:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1560 text20 CODE >63:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1562 text20 CODE >63:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1564 text20 CODE >65:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1564 text20 CODE >68:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1567 text20 CODE >66:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1569 text20 CODE >66:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1570 text20 CODE >67:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1572 text20 CODE >65:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1573 text20 CODE >70:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1576 text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+157B text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+157D text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+157F text20 CODE >71:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1581 text20 CODE >72:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+1589 text20 CODE >73:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
+158A text19 CODE >180:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+158A text19 CODE >182:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+158E text19 CODE >182:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+160C text19 CODE >183:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C65 text18 CODE >39:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 C65 text18 CODE >40:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C65 text18 CODE >41:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C66 text18 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C71 text18 CODE >45:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-C97 text18 CODE >47:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-CCF text18 CODE >49:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-CF5 text18 CODE >51:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-D26 text18 CODE >53:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-D4C text18 CODE >55:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-D7D text18 CODE >57:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-DA3 text18 CODE >59:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-DD4 text18 CODE >61:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-DFA text18 CODE >63:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-E2B text18 CODE >65:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-E51 text18 CODE >67:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-E82 text18 CODE >69:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-EA8 text18 CODE >71:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-ED9 text18 CODE >73:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-EFF text18 CODE >75:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-F30 text18 CODE >77:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-F56 text18 CODE >79:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-F87 text18 CODE >81:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-FAD text18 CODE >83:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-FEB text18 CODE >84:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-FEC text18 CODE >86:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-FF0 text18 CODE >88:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-FFF text18 CODE >89:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1330 text17 CODE >59:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1330 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1341 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1347 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-134B text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-134F text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1353 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1357 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-135C text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1360 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1364 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12CD text16 CODE >28:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12CE text16 CODE >30:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12D1 text16 CODE >30:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12D4 text16 CODE >30:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12DA text16 CODE >31:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12E9 text16 CODE >32:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12F0 text16 CODE >33:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-12FD text16 CODE >34:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-115F text15 CODE >54:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1161 text15 CODE >56:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1162 text15 CODE >57:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1166 text15 CODE >58:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-11FF text14 CODE >40:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-11FF text14 CODE >42:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1200 text14 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-120A text14 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-120C text14 CODE >45:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-121A text14 CODE >46:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-121C text14 CODE >46:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1220 text14 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-13F4 text13 CODE >4:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-13F4 text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-13F7 text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-13FA text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-13FC text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-1400 text13 CODE >7:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-1401 text13 CODE >8:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-140A text13 CODE >9:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-140E text13 CODE >10:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-1419 text13 CODE >10:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-142A text13 CODE >11:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-142E text13 CODE >12:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-1454 text13 CODE >13:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-1368 text12 CODE >5:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1368 text12 CODE >13:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-136A text12 CODE >14:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-136E text12 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1370 text12 CODE >16:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1372 text12 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1373 text12 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1377 text12 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1379 text12 CODE >18:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-137D text12 CODE >16:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-137E text12 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-137F text12 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1383 text12 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1385 text12 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1387 text12 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-138B text12 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-138D text12 CODE >23:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1390 text12 CODE >23:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1393 text12 CODE >24:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1394 text12 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1395 text12 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-1399 text12 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-139B text12 CODE >27:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-139F text12 CODE >29:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-13A3 text12 CODE >30:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
-12FE text11 CODE >5:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-12FE text11 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1302 text11 CODE >13:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1304 text11 CODE >14:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1306 text11 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1307 text11 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-130B text11 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-130D text11 CODE >16:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1311 text11 CODE >14:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1312 text11 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1314 text11 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1318 text11 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-131A text11 CODE >20:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-131D text11 CODE >20:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1320 text11 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1321 text11 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1325 text11 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-1327 text11 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-132B text11 CODE >24:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
-132F text11 CODE >25:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+C66 text18 CODE >42:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C71 text18 CODE >44:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+C97 text18 CODE >46:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+CCF text18 CODE >48:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+CF5 text18 CODE >50:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+D26 text18 CODE >52:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+D4C text18 CODE >54:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+D7D text18 CODE >56:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+DA3 text18 CODE >58:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+DD4 text18 CODE >60:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+DFA text18 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+E2B text18 CODE >64:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+E51 text18 CODE >66:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+E82 text18 CODE >68:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+EA8 text18 CODE >70:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+ED9 text18 CODE >72:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+EFF text18 CODE >74:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+F30 text18 CODE >76:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+F56 text18 CODE >78:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+F87 text18 CODE >80:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+FAD text18 CODE >82:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+FEB text18 CODE >83:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+FEC text18 CODE >85:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+FF0 text18 CODE >87:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+FFF text18 CODE >88:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+12AB text17 CODE >59:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12AB text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12BC text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12C2 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12C6 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12CA text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12CE text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12D2 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12D7 text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12DB text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+12DF text17 CODE >62:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+1248 text16 CODE >28:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+1249 text16 CODE >30:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+124C text16 CODE >30:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+124F text16 CODE >30:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+1255 text16 CODE >31:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+1264 text16 CODE >32:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+126B text16 CODE >33:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+1278 text16 CODE >34:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10E7 text15 CODE >54:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10E9 text15 CODE >56:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10EA text15 CODE >57:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10EE text15 CODE >58:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+117F text14 CODE >40:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+117F text14 CODE >42:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+1180 text14 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+118A text14 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+118C text14 CODE >45:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+119A text14 CODE >46:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+119C text14 CODE >46:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+11A0 text14 CODE >43:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+136F text13 CODE >4:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+136F text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+1372 text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+1375 text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+1377 text13 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+137B text13 CODE >7:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+137C text13 CODE >8:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+1385 text13 CODE >9:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+1389 text13 CODE >10:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+1394 text13 CODE >10:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+13A5 text13 CODE >11:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+13A9 text13 CODE >12:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+13CF text13 CODE >13:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
+12E3 text12 CODE >5:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12E3 text12 CODE >13:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12E5 text12 CODE >14:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12E9 text12 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12EB text12 CODE >16:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12ED text12 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12EE text12 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12F2 text12 CODE >17:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12F4 text12 CODE >18:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12F8 text12 CODE >16:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12F9 text12 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12FA text12 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+12FE text12 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1300 text12 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1302 text12 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1306 text12 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1308 text12 CODE >23:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+130B text12 CODE >23:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+130E text12 CODE >24:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+130F text12 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1310 text12 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1314 text12 CODE >26:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1316 text12 CODE >27:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+131A text12 CODE >29:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+131E text12 CODE >30:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwdiv.c
+1279 text11 CODE >5:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1279 text11 CODE >12:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+127D text11 CODE >13:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+127F text11 CODE >14:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1281 text11 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1282 text11 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1286 text11 CODE >15:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1288 text11 CODE >16:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+128C text11 CODE >14:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+128D text11 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+128F text11 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1293 text11 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1295 text11 CODE >20:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+1298 text11 CODE >20:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+129B text11 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+129C text11 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+12A0 text11 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+12A2 text11 CODE >22:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+12A6 text11 CODE >24:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
+12AA text11 CODE >25:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lwmod.c
 1742 text10 CODE >505:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\doprnt.c
 1743 text10 CODE >550:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\doprnt.c
 1745 text10 CODE >553:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\doprnt.c
@@ -668,64 +663,64 @@ FFF text18 CODE >89:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\prote
 17FA text10 CODE >1500:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\doprnt.c
 17FB text10 CODE >1564:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\doprnt.c
 17FF text10 CODE >1567:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\doprnt.c
-1188 text9 CODE >8:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
-1189 text9 CODE >18:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
-118B text9 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
-119B text9 CODE >20:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
-119F text9 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
-11A3 text9 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
-1455 text8 CODE >186:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1455 text8 CODE >190:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1468 text8 CODE >191:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1490 text8 CODE >192:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1492 text8 CODE >192:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1497 text8 CODE >193:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14A0 text8 CODE >195:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14B1 text8 CODE >196:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14B7 text8 CODE >197:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14BE text8 CODE >198:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1221 text7 CODE >35:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1221 text7 CODE >38:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1223 text7 CODE >41:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1227 text7 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1228 text7 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-122E text7 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1230 text7 CODE >43:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1234 text7 CODE >41:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1235 text7 CODE >45:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
-1247 text7 CODE >46:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+1108 text9 CODE >8:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
+1109 text9 CODE >18:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
+110B text9 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
+111B text9 CODE >20:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
+111F text9 CODE >21:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
+1123 text9 CODE >19:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
+14A7 text8 CODE >185:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+14A7 text8 CODE >189:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+14BC text8 CODE >190:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+14E4 text8 CODE >191:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+14E6 text8 CODE >191:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+14EB text8 CODE >192:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+14F4 text8 CODE >194:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1505 text8 CODE >195:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+150B text8 CODE >196:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1512 text8 CODE >197:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11A1 text7 CODE >35:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11A1 text7 CODE >38:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11A3 text7 CODE >41:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11A7 text7 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11A8 text7 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11AE text7 CODE >42:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11B0 text7 CODE >43:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11B4 text7 CODE >41:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11B5 text7 CODE >45:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+11C7 text7 CODE >46:D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
+F text6 CODE >90:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 F text6 CODE >91:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-F text6 CODE >92:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-10 text6 CODE >94:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1B text6 CODE >97:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-73 text6 CODE >98:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-7E text6 CODE >98:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-8F text6 CODE >98:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-93 text6 CODE >100:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-E8 text6 CODE >102:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-F2 text6 CODE >102:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-F6 text6 CODE >102:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-107 text6 CODE >102:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-10B text6 CODE >104:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14BF text5 CODE >200:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14BF text5 CODE >204:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14D3 text5 CODE >205:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14FB text5 CODE >206:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-14FD text5 CODE >206:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1502 text5 CODE >207:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-150B text5 CODE >209:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-151C text5 CODE >210:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1522 text5 CODE >211:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-1529 text5 CODE >212:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+10 text6 CODE >93:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1B text6 CODE >96:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+73 text6 CODE >97:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+7E text6 CODE >97:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+8F text6 CODE >97:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+93 text6 CODE >99:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+E8 text6 CODE >101:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+F2 text6 CODE >101:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+F6 text6 CODE >101:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+107 text6 CODE >101:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+10B text6 CODE >103:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+13D0 text5 CODE >199:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+13D0 text5 CODE >203:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+13E4 text5 CODE >204:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+140C text5 CODE >205:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+140E text5 CODE >205:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1413 text5 CODE >206:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+141C text5 CODE >208:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+142D text5 CODE >209:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+1433 text5 CODE >210:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+143A text5 CODE >211:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 5 text4 CODE >15:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
 5 text4 CODE >17:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
 8 text4 CODE >18:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
 B text4 CODE >19:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
 E text4 CODE >20:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/ADC.c
-1167 text3 CODE >35:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-1167 text3 CODE >37:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-116A text3 CODE >38:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-116E text3 CODE >39:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10E1 text3 CODE >35:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10E1 text3 CODE >37:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10E2 text3 CODE >38:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
+10E6 text3 CODE >39:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
 88D text2 CODE >4:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
 88D text2 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
 89A text2 CODE >7:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
@@ -748,46 +743,45 @@ E text4 CODE >20:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\
 933 text2 CODE >24:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
 93C text2 CODE >25:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
 94B text2 CODE >26:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/LCD.c
-116F text1 CODE >3:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
-116F text1 CODE >5:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
-1172 text1 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
-1174 text1 CODE >7:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
-1176 text1 CODE >8:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
-129F maintext CODE >24:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-129F maintext CODE >27:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-12A4 maintext CODE >28:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-12A9 maintext CODE >29:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-12AE maintext CODE >33:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-12B3 maintext CODE >34:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-12B8 maintext CODE >35:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-12BD maintext CODE >36:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
-802 clrtext CODE >1472:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-802 clrtext CODE >1473:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-803 clrtext CODE >1474:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-803 clrtext CODE >1475:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-804 clrtext CODE >1476:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-805 clrtext CODE >1477:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-806 clrtext CODE >1478:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-807 clrtext CODE >1479:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-808 clrtext CODE >1480:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-809 clrtext CODE >1481:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1177 inittext CODE >1406:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1177 inittext CODE >1407:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1178 inittext CODE >1408:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1179 inittext CODE >1409:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-117A inittext CODE >1410:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-117B inittext CODE >1417:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-117B inittext CODE >1418:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-117E inittext CODE >1419:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-117F inittext CODE >1420:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1180 inittext CODE >1421:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1181 inittext CODE >1422:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1182 inittext CODE >1423:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1183 inittext CODE >1424:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1184 inittext CODE >1425:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1185 inittext CODE >1426:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1186 inittext CODE >1427:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
-1187 inittext CODE >1428:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10EF text1 CODE >3:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
+10EF text1 CODE >5:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
+10F2 text1 CODE >6:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
+10F4 text1 CODE >7:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
+10F6 text1 CODE >8:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
+11C8 maintext CODE >24:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11C8 maintext CODE >27:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11CD maintext CODE >28:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11D2 maintext CODE >29:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11D7 maintext CODE >33:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11DC maintext CODE >34:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+11E1 maintext CODE >35:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+885 clrtext CODE >1491:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+885 clrtext CODE >1492:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+886 clrtext CODE >1493:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+886 clrtext CODE >1494:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+887 clrtext CODE >1495:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+888 clrtext CODE >1496:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+889 clrtext CODE >1497:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+88A clrtext CODE >1498:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+88B clrtext CODE >1499:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+88C clrtext CODE >1500:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10F7 inittext CODE >1425:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10F7 inittext CODE >1426:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10F8 inittext CODE >1427:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10F9 inittext CODE >1428:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10FA inittext CODE >1429:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10FB inittext CODE >1436:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10FB inittext CODE >1437:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10FE inittext CODE >1438:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+10FF inittext CODE >1439:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1100 inittext CODE >1440:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1101 inittext CODE >1441:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1102 inittext CODE >1442:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1103 inittext CODE >1443:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1104 inittext CODE >1444:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1105 inittext CODE >1445:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1106 inittext CODE >1446:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
+1107 inittext CODE >1447:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\Debug.as
 $startup.obj
 0 end_init CODE >80:D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887\Debug\startup.as
 # %SYMTAB Section
@@ -821,7 +815,7 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
 ___sp 0 0 STACK 2 stack startup.obj
-_main 253E 0 CODE 0 maintext Debug.obj
+_main 2390 0 CODE 0 maintext Debug.obj
 _temp B6 0 BANK1 1 dataBANK1 Debug.obj
 btemp 7E 0 ABS 0 - Debug.obj
 ___stack_hi 0 0 STACK 2 stack startup.obj
@@ -829,7 +823,7 @@ ___stack_lo 0 0 STACK 2 stack startup.obj
 ___ftadd@f1 20 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftadd@f2 23 0 BANK0 1 cstackBANK0 Debug.obj
 start 0 0 CODE 0 init startup.obj
-__end_of_display_temperature 2A54 0 CODE 0 text5 Debug.obj
+__end_of_display_temperature 2876 0 CODE 0 text5 Debug.obj
 _ADC_value DC 0 BANK1 1 bssBANK1 Debug.obj
 ___ftdiv@f1 44 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftdiv@f2 41 0 BANK0 1 cstackBANK0 Debug.obj
@@ -841,9 +835,9 @@ display_pressure@calculated_pressure D3 0 BANK1 1 cstackBANK1 Debug.obj
 __Hpowerup 0 0 CODE 0 powerup -
 ___ftge@ff1 70 0 COMMON 1 cstackCOMMON Debug.obj
 ___ftge@ff2 73 0 COMMON 1 cstackCOMMON Debug.obj
-__end_of_lcd_clear 22DE 0 CODE 0 text3 Debug.obj
-__end_of_lcd_write 25FC 0 CODE 0 text16 Debug.obj
-__end_of_display_pressure 297E 0 CODE 0 text8 Debug.obj
+__end_of_lcd_clear 21CE 0 CODE 0 text3 Debug.obj
+__end_of_lcd_write 24F2 0 CODE 0 text16 Debug.obj
+__end_of_display_pressure 2A26 0 CODE 0 text8 Debug.obj
 intlevel0 0 0 ENTRY 0 functab startup.obj
 intlevel1 0 0 ENTRY 0 functab startup.obj
 intlevel2 0 0 ENTRY 0 functab startup.obj
@@ -861,15 +855,15 @@ __end_of_init_ADC 1E 0 CODE 0 text4 Debug.obj
 __end_of_init_LCD 1298 0 CODE 0 text2 Debug.obj
 ___ftmul@f1 32 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftmul@f2 35 0 BANK0 1 cstackBANK0 Debug.obj
-_lcd_clear 22CE 0 CODE 0 text3 Debug.obj
+_lcd_clear 21C2 0 CODE 0 text3 Debug.obj
 read_adc@channel 50 0 BANK0 1 cstackBANK0 Debug.obj
-_lcd_write 259A 0 CODE 0 text16 Debug.obj
+_lcd_write 2490 0 CODE 0 text16 Debug.obj
 _ADCON0 1F 0 ABS 0 - Debug.obj
 _ADCON1 9F 0 ABS 0 - Debug.obj
 _ADRESH 1E 0 ABS 0 - Debug.obj
 _ADRESL 9E 0 ABS 0 - Debug.obj
 _ANSELH 189 0 ABS 0 - Debug.obj
-__end_of___ftge 253E 0 CODE 0 text27 Debug.obj
+__end_of___ftge 2490 0 CODE 0 text27 Debug.obj
 ___ftsub@f1 2F 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftsub@f2 2C 0 BANK0 1 cstackBANK0 Debug.obj
 ___fttol@f1 50 0 BANK0 1 cstackBANK0 Debug.obj
@@ -878,47 +872,47 @@ ___lwmod@divisor 77 0 COMMON 1 cstackCOMMON Debug.obj
 __end_of___ftadd 1492 0 CODE 0 text22 Debug.obj
 __end_of___ftdiv 2D36 0 CODE 0 text24 Debug.obj
 __end_of___ftmul 2E84 0 CODE 0 text23 Debug.obj
-__end_of___ftsub 23BC 0 CODE 0 text21 Debug.obj
-__end_of___fttol 2C1A 0 CODE 0 text20 Debug.obj
-__end_of___lwdiv 2748 0 CODE 0 text12 Debug.obj
-__end_of___lwmod 2660 0 CODE 0 text11 Debug.obj
-_interpolate 1014 0 CODE 0 text19 Debug.obj
+__end_of___ftsub 22BC 0 CODE 0 text21 Debug.obj
+__end_of___fttol 2B14 0 CODE 0 text20 Debug.obj
+__end_of___lwdiv 263E 0 CODE 0 text12 Debug.obj
+__end_of___lwmod 2556 0 CODE 0 text11 Debug.obj
+_interpolate 2B14 0 CODE 0 text19 Debug.obj
 ___stackhi 0 0 ABS 0 - startup.obj
 ___stacklo 0 0 ABS 0 - startup.obj
-_dpowers 2020 0 STRING 0 strings Debug.obj
+_dpowers 1020 0 STRING 0 strings Debug.obj
 ___lwdiv@quotient 74 0 COMMON 1 cstackCOMMON Debug.obj
-_display_temperature$757 D4 0 BANK1 1 cstackBANK1 Debug.obj
+_display_temperature$756 D4 0 BANK1 1 cstackBANK1 Debug.obj
 ___lwmod@dividend 79 0 COMMON 1 cstackCOMMON Debug.obj
 start_initialization F8A 0 CODE 0 cinit Debug.obj
-___awtoft 2348 0 CODE 0 text25 Debug.obj
+___awtoft 2248 0 CODE 0 text25 Debug.obj
 _GO_nDONE F9 0 ABS 0 - Debug.obj
-__end_of___awtoft 2382 0 CODE 0 text25 Debug.obj
-clear_ram0 1004 0 CODE 0 clrtext Debug.obj
+__end_of___awtoft 2282 0 CODE 0 text25 Debug.obj
+clear_ram0 110A 0 CODE 0 clrtext Debug.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 Debug.obj
 __pcstackBANK1 CA 0 BANK1 1 cstackBANK1 Debug.obj
 ___fttol@exp1 5C 0 BANK0 1 cstackBANK0 Debug.obj
 ___fttol@lval 58 0 BANK0 1 cstackBANK0 Debug.obj
 ___lltoft@c 78 0 COMMON 1 cstackCOMMON Debug.obj
-___ftpack 2A54 0 CODE 0 text26 Debug.obj
+___ftpack 2876 0 CODE 0 text26 Debug.obj
 ___ftpack@arg 70 0 COMMON 1 cstackCOMMON Debug.obj
 ___ftpack@exp 73 0 COMMON 1 cstackCOMMON Debug.obj
 ?_get_pressure_value 6D 0 BANK0 1 cstackBANK0 Debug.obj
-__end_of_init_uC 22EE 0 CODE 0 text1 Debug.obj
+__end_of_init_uC 21EE 0 CODE 0 text1 Debug.obj
 ___int_sp 0 0 STACK 2 stack startup.obj
-__end_of___ftpack 2B2C 0 CODE 0 text26 Debug.obj
+__end_of___ftpack 294E 0 CODE 0 text26 Debug.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
-__end_of_strcpy 2348 0 CODE 0 text9 Debug.obj
+__end_of_strcpy 2248 0 CODE 0 text9 Debug.obj
 __Hstack 0 0 STACK 2 stack -
-__stringbase 201E 0 STRING 0 strings Debug.obj
+__stringbase 101E 0 STRING 0 strings Debug.obj
 ___lwdiv@counter 76 0 COMMON 1 cstackCOMMON Debug.obj
 __Hmaintext 0 0 ABS 0 maintext -
 get_temperature_value@vout CB 0 BANK1 1 cstackBANK1 Debug.obj
 __end_of_sprintf 3000 0 CODE 0 text10 Debug.obj
-___lltoft 2442 0 CODE 0 text7 Debug.obj
+___lltoft 2342 0 CODE 0 text7 Debug.obj
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
@@ -931,7 +925,7 @@ ___ftadd@exp2 2A 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftadd@sign 29 0 BANK0 1 cstackBANK0 Debug.obj
 __Lstack 0 0 STACK 2 stack -
 __end_of_get_temperature_value 18CA 0 CODE 0 text6_split_2 Debug.obj
-__end_of___lltoft 2490 0 CODE 0 text7 Debug.obj
+__end_of___lltoft 2390 0 CODE 0 text7 Debug.obj
 __Linittext 0 0 ABS 0 inittext -
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -951,7 +945,7 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-___ftge 24E4 0 CODE 0 text27 Debug.obj
+___ftge 2436 0 CODE 0 text27 Debug.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 psplit$0 17002E 0 ABS 0 - Debug.obj
@@ -964,58 +958,58 @@ __S1 1C5 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _res 110 0 BANK2 1 dataBANK2 Debug.obj
 _get_temperature_value 1E 0 CODE 0 text6 Debug.obj
-_display_pressure$756 D0 0 BANK1 1 cstackBANK1 Debug.obj
+_display_pressure$755 D0 0 BANK1 1 cstackBANK1 Debug.obj
 ___awtoft@c 78 0 COMMON 1 cstackCOMMON Debug.obj
 sprintf@val 29 0 BANK0 1 cstackBANK0 Debug.obj
 strcpy@cp 71 0 COMMON 1 cstackCOMMON Debug.obj
 strcpy@to 72 0 COMMON 1 cstackCOMMON Debug.obj
 delay_LCD@t 70 0 COMMON 1 cstackCOMMON Debug.obj
-_lcd_goto 22BE 0 CODE 0 text15 Debug.obj
-_lcd_puts 23FE 0 CODE 0 text14 Debug.obj
+_lcd_goto 21CE 0 CODE 0 text15 Debug.obj
+_lcd_puts 22FE 0 CODE 0 text14 Debug.obj
 __Lintentry 0 0 CODE 0 intentry -
-__stringtab 2000 0 STRING 0 strings Debug.obj
+__stringtab 1000 0 STRING 0 strings Debug.obj
 reset_vec 0 0 CODE 0 reset_vec startup.obj
 pnum$text6_split_1 2E 0 ABS 0 - Debug.obj
 pnum$text6_split_2 2F 0 ABS 0 - Debug.obj
-_interpolate$755 6A 0 BANK0 1 cstackBANK0 Debug.obj
+_interpolate$754 6A 0 BANK0 1 cstackBANK0 Debug.obj
 __pdataBANK1 A0 0 BANK1 1 dataBANK1 Debug.obj
 __pdataBANK2 110 0 BANK2 1 dataBANK2 Debug.obj
 __pdataBANK3 190 0 BANK3 1 dataBANK3 Debug.obj
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
 __LbssBANK3 0 0 ABS 0 bssBANK3 -
-__end_of_lcd_goto 22CE 0 CODE 0 text15 Debug.obj
-__end_of_lcd_puts 2442 0 CODE 0 text14 Debug.obj
+__end_of_lcd_goto 21DE 0 CODE 0 text15 Debug.obj
+__end_of_lcd_puts 2342 0 CODE 0 text14 Debug.obj
 ?___awtoft 78 0 COMMON 1 cstackCOMMON Debug.obj
 sprintf@flag 27 0 BANK0 1 cstackBANK0 Debug.obj
 sprintf@prec 28 0 BANK0 1 cstackBANK0 Debug.obj
 get_temperature_value@ADC_value CA 0 BANK1 1 cstackBANK1 Debug.obj
 __ptext10 2E84 0 CODE 0 text10 Debug.obj
-__ptext11 25FC 0 CODE 0 text11 Debug.obj
-__ptext12 26D0 0 CODE 0 text12 Debug.obj
-__ptext13 27E8 0 CODE 0 text13 Debug.obj
-__ptext14 23FE 0 CODE 0 text14 Debug.obj
-__ptext15 22BE 0 CODE 0 text15 Debug.obj
-__ptext16 259A 0 CODE 0 text16 Debug.obj
-__ptext17 2660 0 CODE 0 text17 Debug.obj
+__ptext11 24F2 0 CODE 0 text11 Debug.obj
+__ptext12 25C6 0 CODE 0 text12 Debug.obj
+__ptext13 26DE 0 CODE 0 text13 Debug.obj
+__ptext14 22FE 0 CODE 0 text14 Debug.obj
+__ptext15 21CE 0 CODE 0 text15 Debug.obj
+__ptext16 2490 0 CODE 0 text16 Debug.obj
+__ptext17 2556 0 CODE 0 text17 Debug.obj
 __ptext18 18CA 0 CODE 0 text18 Debug.obj
-__ptext19 1014 0 CODE 0 text19 Debug.obj
-__ptext20 2B2C 0 CODE 0 text20 Debug.obj
-__ptext21 2382 0 CODE 0 text21 Debug.obj
+__ptext19 2B14 0 CODE 0 text19 Debug.obj
+__ptext20 2A26 0 CODE 0 text20 Debug.obj
+__ptext21 2282 0 CODE 0 text21 Debug.obj
 __ptext22 1298 0 CODE 0 text22 Debug.obj
 __ptext23 2D36 0 CODE 0 text23 Debug.obj
 __ptext24 2C1A 0 CODE 0 text24 Debug.obj
-__ptext25 2348 0 CODE 0 text25 Debug.obj
-__ptext26 2A54 0 CODE 0 text26 Debug.obj
-__ptext27 24E4 0 CODE 0 text27 Debug.obj
+__ptext25 2248 0 CODE 0 text25 Debug.obj
+__ptext26 2876 0 CODE 0 text26 Debug.obj
+__ptext27 2436 0 CODE 0 text27 Debug.obj
 ___ftadd 1298 0 CODE 0 text22 Debug.obj
 ___ftdiv 2C1A 0 CODE 0 text24 Debug.obj
 ___ftmul 2D36 0 CODE 0 text23 Debug.obj
-___ftsub 2382 0 CODE 0 text21 Debug.obj
-___fttol 2B2C 0 CODE 0 text20 Debug.obj
+___ftsub 2282 0 CODE 0 text21 Debug.obj
+___fttol 2A26 0 CODE 0 text20 Debug.obj
 __end_of_get_pressure_value 2000 0 CODE 0 text18 Debug.obj
-___lwdiv 26D0 0 CODE 0 text12 Debug.obj
-___lwmod 25FC 0 CODE 0 text11 Debug.obj
-__pmaintext 253E 0 CODE 0 maintext Debug.obj
+___lwdiv 25C6 0 CODE 0 text12 Debug.obj
+___lwmod 24F2 0 CODE 0 text11 Debug.obj
+__pmaintext 2390 0 CODE 0 maintext Debug.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 ?___ftpack 70 0 COMMON 1 cstackCOMMON Debug.obj
@@ -1024,16 +1018,16 @@ read_adc@adc_result 53 0 BANK0 1 cstackBANK0 Debug.obj
 ?_get_temperature_value 6D 0 BANK0 1 cstackBANK0 Debug.obj
 get_pressure_value@vout CD 0 BANK1 1 cstackBANK1 Debug.obj
 ___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON Debug.obj
-_strcpy 2310 0 CODE 0 text9 Debug.obj
+_strcpy 2210 0 CODE 0 text9 Debug.obj
 interpolate@x 5D 0 BANK0 1 cstackBANK0 Debug.obj
 get_pressure_value@result CB 0 BANK1 1 cstackBANK1 Debug.obj
-_read_adc 27E8 0 CODE 0 text13 Debug.obj
-__end_of_interpolate 111A 0 CODE 0 text19 Debug.obj
+_read_adc 26DE 0 CODE 0 text13 Debug.obj
+__end_of_interpolate 2C1A 0 CODE 0 text19 Debug.obj
 _voltage 190 0 BANK3 1 dataBANK3 Debug.obj
 ?___lltoft 78 0 COMMON 1 cstackCOMMON Debug.obj
-__end_of__stringtab 2020 0 STRING 0 strings Debug.obj
+__end_of__stringtab 1020 0 STRING 0 strings Debug.obj
 get_temperature_value@result CE 0 BANK1 1 cstackBANK1 Debug.obj
-__end_of_read_adc 28AA 0 CODE 0 text13 Debug.obj
+__end_of_read_adc 27A0 0 CODE 0 text13 Debug.obj
 strcpy@from 70 0 COMMON 1 cstackCOMMON Debug.obj
 _get_pressure_value 18CA 0 CODE 0 text18 Debug.obj
 __Lspace_0 0 0 ABS 0 - -
@@ -1043,7 +1037,7 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 ___ftmul@cntr 3F 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftmul@sign 40 0 BANK0 1 cstackBANK0 Debug.obj
-init_fetch0 22EE 0 CODE 0 inittext Debug.obj
+init_fetch0 21EE 0 CODE 0 inittext Debug.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __Lend_init 0 0 CODE 0 end_init -
@@ -1062,29 +1056,29 @@ ___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON Debug.obj
 ?___lwmod 77 0 COMMON 1 cstackCOMMON Debug.obj
 delay_LCD@var 78 0 COMMON 1 cstackCOMMON Debug.obj
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__end_of_delay_LCD 26D0 0 CODE 0 text17 Debug.obj
+__end_of_delay_LCD 25C6 0 CODE 0 text17 Debug.obj
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
 __HbssBANK3 0 0 ABS 0 bssBANK3 -
-_init_uC 22DE 0 CODE 0 text1 Debug.obj
+_init_uC 21DE 0 CODE 0 text1 Debug.obj
 _pressure A0 0 BANK1 1 dataBANK1 Debug.obj
 lcd_write@c 7D 0 COMMON 1 cstackCOMMON Debug.obj
 ___lltoft@exp 7C 0 COMMON 1 cstackCOMMON Debug.obj
-__ptext1 22DE 0 CODE 0 text1 Debug.obj
+__ptext1 21DE 0 CODE 0 text1 Debug.obj
 __ptext2 111A 0 CODE 0 text2 Debug.obj
-__ptext3 22CE 0 CODE 0 text3 Debug.obj
+__ptext3 21C2 0 CODE 0 text3 Debug.obj
 __ptext4 A 0 CODE 0 text4 Debug.obj
-__ptext5 297E 0 CODE 0 text5 Debug.obj
+__ptext5 27A0 0 CODE 0 text5 Debug.obj
 __ptext6 1E 0 CODE 0 text6 Debug.obj
-__ptext7 2442 0 CODE 0 text7 Debug.obj
-__ptext8 28AA 0 CODE 0 text8 Debug.obj
-__ptext9 2310 0 CODE 0 text9 Debug.obj
+__ptext7 2342 0 CODE 0 text7 Debug.obj
+__ptext8 294E 0 CODE 0 text8 Debug.obj
+__ptext9 2210 0 CODE 0 text9 Debug.obj
 _sprintf 2E84 0 CODE 0 text10 Debug.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 sprintf@ap 26 0 BANK0 1 cstackBANK0 Debug.obj
 sprintf@sp 2B 0 BANK0 1 cstackBANK0 Debug.obj
 __H__absolute__ 0 0 ABS 0 __absolute__ -
-_delay_LCD 2660 0 CODE 0 text17 Debug.obj
+_delay_LCD 2556 0 CODE 0 text17 Debug.obj
 __Lreset_vec 0 0 CODE 0 reset_vec -
 ___heap_hi 0 0 ABS 0 - startup.obj
 ___heap_lo 0 0 ABS 0 - startup.obj
@@ -1095,9 +1089,9 @@ interpolate@x1 60 0 BANK0 1 cstackBANK0 Debug.obj
 interpolate@x2 63 0 BANK0 1 cstackBANK0 Debug.obj
 interpolate@y1 66 0 BANK0 1 cstackBANK0 Debug.obj
 interpolate@y2 68 0 BANK0 1 cstackBANK0 Debug.obj
-__pidataBANK1 2490 0 CODE 0 idataBANK1 Debug.obj
-__pidataBANK2 2748 0 CODE 0 idataBANK2 Debug.obj
-__pidataBANK3 23BC 0 CODE 0 idataBANK3 Debug.obj
+__pidataBANK1 23E2 0 CODE 0 idataBANK1 Debug.obj
+__pidataBANK2 263E 0 CODE 0 idataBANK2 Debug.obj
+__pidataBANK3 22BC 0 CODE 0 idataBANK3 Debug.obj
 get_pressure_value@ADC_value CA 0 BANK1 1 cstackBANK1 Debug.obj
 __Lclrtext 0 0 ABS 0 clrtext -
 ___ftpack@sign 74 0 COMMON 1 cstackCOMMON Debug.obj
@@ -1106,14 +1100,14 @@ __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON Debug.obj
 ___ftdiv@cntr 4A 0 BANK0 1 cstackBANK0 Debug.obj
 ___ftdiv@sign 4F 0 BANK0 1 cstackBANK0 Debug.obj
 ?_interpolate 5D 0 BANK0 1 cstackBANK0 Debug.obj
-_display_temperature 297E 0 CODE 0 text5 Debug.obj
+_display_temperature 27A0 0 CODE 0 text5 Debug.obj
 __Hend_init 6 0 CODE 0 end_init -
-init_ram0 22F6 0 CODE 0 inittext Debug.obj
+init_ram0 21F6 0 CODE 0 inittext Debug.obj
 lcd_goto@pos 20 0 BANK0 1 cstackBANK0 Debug.obj
 sprintf@c 2C 0 BANK0 1 cstackBANK0 Debug.obj
 sprintf@f 20 0 BANK0 1 cstackBANK0 Debug.obj
-__end_of_main 259A 0 CODE 0 maintext Debug.obj
-__end_of_dpowers 2034 0 STRING 0 strings Debug.obj
+__end_of_main 23E2 0 CODE 0 maintext Debug.obj
+__end_of_dpowers 1034 0 STRING 0 strings Debug.obj
 ?_sprintf 20 0 BANK0 1 cstackBANK0 Debug.obj
 _PORTA 5 0 ABS 0 - Debug.obj
 _PORTD 8 0 ABS 0 - Debug.obj
@@ -1127,10 +1121,10 @@ __HdataBANK1 0 0 ABS 0 dataBANK1 -
 __HdataBANK2 0 0 ABS 0 dataBANK2 -
 __HdataBANK3 0 0 ABS 0 dataBANK3 -
 __initialization F8A 0 CODE 0 cinit Debug.obj
-_display_pressure 28AA 0 CODE 0 text8 Debug.obj
+_display_pressure 294E 0 CODE 0 text8 Debug.obj
 __pbssBANK1 DC 0 BANK1 1 bssBANK1 Debug.obj
 __pbssBANK3 1B1 0 BANK3 1 bssBANK3 Debug.obj
-__pstrings 2000 0 STRING 0 strings Debug.obj
+__pstrings 1000 0 STRING 0 strings Debug.obj
 ___int_stack_hi 0 0 STACK 2 stack startup.obj
 ___int_stack_lo 0 0 STACK 2 stack startup.obj
 ___ftmul@f3_as_product 3C 0 BANK0 1 cstackBANK0 Debug.obj
@@ -1163,46 +1157,46 @@ text6_split_1 text6_split_2
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7C5 F8A 3B 2
-text1 0 116F 22DE 8 2
+text1 0 10EF 21DE 8 2
 text2 0 88D 111A BF 2
-text3 0 1167 22CE 8 2
+text3 0 10E1 21C2 6 2
 text4 0 5 A A 2
-text5 0 14BF 297E 6B 2
+text5 0 13D0 27A0 6B 2
 text6 0 F 1E 158 2
-text7 0 1221 2442 27 2
-text8 0 1455 28AA 6A 2
-text9 0 1188 2310 1C 2
+text7 0 11A1 2342 27 2
+text8 0 14A7 294E 6C 2
+text9 0 1108 2210 1C 2
 text10 0 1742 2E84 BE 2
-text11 0 12FE 25FC 32 2
-text12 0 1368 26D0 3C 2
-text13 0 13F4 27E8 61 2
-text14 0 11FF 23FE 22 2
-text15 0 115F 22BE 8 2
-text16 0 12CD 259A 31 2
-text17 0 1330 2660 38 2
+text11 0 1279 24F2 32 2
+text12 0 12E3 25C6 3C 2
+text13 0 136F 26DE 61 2
+text14 0 117F 22FE 22 2
+text15 0 10E7 21CE 8 2
+text16 0 1248 2490 31 2
+text17 0 12AB 2556 38 2
 text18 0 C65 18CA 39B 2
-text19 0 80A 1014 83 2
-text20 0 1596 2B2C 77 2
-text21 0 11C1 2382 1D 2
+text19 0 158A 2B14 83 2
+text20 0 1513 2A26 77 2
+text21 0 1141 2282 1D 2
 text22 0 94C 1298 FD 2
 text23 0 169B 2D36 A7 2
 text24 0 160D 2C1A 8E 2
-text25 0 11A4 2348 1D 2
-text26 0 152A 2A54 6C 2
-text27 0 1272 24E4 2D 2
-maintext 0 129F 253E 2E 2
+text25 0 1124 2248 1D 2
+text26 0 143B 2876 6C 2
+text27 0 121B 2436 2D 2
+maintext 0 11C8 2390 29 2
 cstackCOMMON 1 70 70 E 1
 cstackBANK0 1 20 20 50 1
-inittext 0 1177 22EE 11 2
+inittext 0 10F7 21EE 11 2
 reset_vec 0 0 0 3 2
-idataBANK1 0 1248 2490 2A 2
-idataBANK2 0 13A4 2748 50 2
-idataBANK3 0 11DE 23BC 21 2
-strings 0 1000 2000 71 2
+idataBANK1 0 11F1 23E2 2A 2
+idataBANK2 0 131F 263E 50 2
+idataBANK3 0 115E 22BC 21 2
+strings 0 800 1000 85 2
 dataBANK1 1 A0 A0 42 1
 dataBANK2 1 110 110 50 1
 dataBANK3 1 190 190 35 1
-clrtext 0 802 1004 8 2
+clrtext 0 885 110A 8 2
 text6_split_1 0 167 2CE 65E 2
 text6_split_2 0 A49 1492 21C 2
 # %NOTES Section

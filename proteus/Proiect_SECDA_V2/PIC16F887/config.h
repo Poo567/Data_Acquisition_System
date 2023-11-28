@@ -4,6 +4,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 
 __PROG_CONFIG(1,0x20D4); 	// config. uC 
 __PROG_CONFIG(2,0x0000); 	// config. uC 

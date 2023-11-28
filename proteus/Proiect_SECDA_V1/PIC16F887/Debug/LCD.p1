@@ -1,18 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"12 ../LCD.h
+"13 ../LCD.c
 [v _delay_LCD `(v ~T0 @X0 0 ef1`ul ]
-"7
-[v _lcd_write `(v ~T0 @X0 0 ef1`uc ]
 "8
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
+[v _lcd_write `(v ~T0 @X0 0 ef1`uc ]
 "9
-[v _lcd_goto `(v ~T0 @X0 0 ef1`uc ]
+[v _lcd_clear `(v ~T0 @X0 0 ef ]
 "10
+[v _lcd_goto `(v ~T0 @X0 0 ef1`uc ]
+"11
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*uc ]
-[v F38 `(v ~T0 @X0 1 tf1`ul ]
-"20 D:\aplicatii\Microchip\xc8\v2.45\pic\include\builtins.h
-[v __delay `JF38 ~T0 @X0 0 e ]
-[p i __delay ]
 "352 D:\aplicatii\Microchip\xc8\v2.45\pic\include\proc\pic16f887.h
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "4200
@@ -175,187 +171,170 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" EECON1 equ 018Ch ;# ">
 "3546
 [; <" EECON2 equ 018Dh ;# ">
-"9 ../config.h
-[p x FOSC=INTRC_NOCLKOUT ]
-[p x WDTE=OFF ]
-[p x PWRTE=OFF ]
-[p x MCLRE=OFF ]
-[p x CP=OFF ]
-[p x CPD=OFF ]
-[p x BOREN=OFF ]
-[p x IESO=OFF ]
-[p x FCMEN=OFF ]
-[p x LVP=OFF ]
-[p x DEBUG=OFF ]
-"10
-[p x BOR4V=BOR21V ]
-[p x WRT=HALF ]
-"4 ../LCD.c
+"15 ../LCD.c
 [v _init_LCD `(v ~T0 @X0 1 ef ]
-"5
+"16
 {
 [e :U _init_LCD ]
 [f ]
-"6
-[e ( _delay_LCD (1 -> -> -> 2000 `i `l `ul ]
-"7
-[e ( _lcd_write (1 -> -> 44 `i `uc ]
-"8
-[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
-"9
-[e ( _lcd_clear ..  ]
-"10
-[e ( _delay_LCD (1 -> -> -> 3000 `i `l `ul ]
-"11
-[e ( _lcd_write (1 -> -> 2 `i `uc ]
-"12
-[e ( _delay_LCD (1 -> -> -> 2000 `i `l `ul ]
-"13
-[e ( _lcd_write (1 -> -> 6 `i `uc ]
-"14
-[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
-"15
-[e ( _lcd_write (1 -> -> 12 `i `uc ]
-"16
-[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
 "17
-[e ( _lcd_write (1 -> -> 16 `i `uc ]
+[e ( _delay_LCD (1 -> -> -> 2000 `i `l `ul ]
 "18
-[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
-"19
 [e ( _lcd_write (1 -> -> 44 `i `uc ]
-"20
+"19
 [e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
+"20
+[e ( _lcd_clear ..  ]
 "21
-[e ( _lcd_goto (1 -> -> 128 `i `uc ]
+[e ( _delay_LCD (1 -> -> -> 3000 `i `l `ul ]
 "22
-[e ( _lcd_puts (1 -> :s 1C `*uc ]
+[e ( _lcd_write (1 -> -> 2 `i `uc ]
 "23
-[e ( _lcd_goto (1 -> -> 148 `i `uc ]
+[e ( _delay_LCD (1 -> -> -> 2000 `i `l `ul ]
 "24
-[e ( _lcd_puts (1 -> :s 2C `*uc ]
+[e ( _lcd_write (1 -> -> 6 `i `uc ]
 "25
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
 "26
-[e :UE 139 ]
-}
+[e ( _lcd_write (1 -> -> 12 `i `uc ]
+"27
+[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
 "28
-[v _lcd_write `(v ~T0 @X0 1 ef1`uc ]
+[e ( _lcd_write (1 -> -> 16 `i `uc ]
 "29
+[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
+"30
+[e ( _lcd_write (1 -> -> 44 `i `uc ]
+"31
+[e ( _delay_LCD (1 -> -> -> 100 `i `l `ul ]
+"32
+[e ( _lcd_goto (1 -> -> 128 `i `uc ]
+"33
+[e ( _lcd_puts (1 -> :s 1C `*uc ]
+"34
+[e ( _lcd_goto (1 -> -> 148 `i `uc ]
+"35
+[e ( _lcd_puts (1 -> :s 2C `*uc ]
+"36
+[e :UE 138 ]
+}
+"38
+[v _lcd_write `(v ~T0 @X0 1 ef1`uc ]
+"39
 {
 [e :U _lcd_write ]
-"28
+"38
 [v _c `uc ~T0 @X0 1 r1 ]
-"29
+"39
 [f ]
-"30
+"40
 [e = _PORTD -> | & -> _PORTD `i -> 240 `i >> -> _c `i -> 4 `i `uc ]
-"31
+"41
 [e ; ; -> = _RD5 -> -> 1 `i `b `i ( _delay_LCD (1 -> -> -> 1 `i `l `ul -> = _RD5 -> -> 0 `i `b `i ]
-"32
+"42
 [e = _PORTD -> | & -> _PORTD `i -> 240 `i & -> _c `i -> 15 `i `uc ]
-"33
+"43
 [e ; ; -> = _RD5 -> -> 1 `i `b `i ( _delay_LCD (1 -> -> -> 1 `i `l `ul -> = _RD5 -> -> 0 `i `b `i ]
-"34
-[e :UE 140 ]
+"44
+[e :UE 139 ]
 }
-"35
+"45
 [v _lcd_clear `(v ~T0 @X0 1 ef ]
-"36
+"46
 {
 [e :U _lcd_clear ]
 [f ]
-"37
+"47
 [e = _RD4 -> -> 0 `i `b ]
-"38
+"48
 [e ( _lcd_write (1 -> -> 1 `i `uc ]
-"39
-[e :UE 141 ]
+"49
+[e :UE 140 ]
 }
-"40
+"50
 [v _lcd_puts `(v ~T0 @X0 1 ef1`*uc ]
-"41
+"51
 {
 [e :U _lcd_puts ]
-"40
+"50
 [v _s `*uc ~T0 @X0 1 r1 ]
-"41
-[f ]
-"42
-[e = _RD4 -> -> 1 `i `b ]
-"43
-[e $U 143  ]
-[e :U 144 ]
-"44
-{
-"45
-[e ( _lcd_write (1 *U _s ]
-"46
-[e ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-"47
-}
-[e :U 143 ]
-"43
-[e $ != -> *U _s `i -> 0 `i 144  ]
-[e :U 145 ]
-"48
-[e :UE 142 ]
-}
-"49
-[v _lcd_putch `(v ~T0 @X0 1 ef1`uc ]
-"50
-{
-[e :U _lcd_putch ]
-"49
-[v _c `uc ~T0 @X0 1 r1 ]
-"50
-[f ]
 "51
-[e = _RD4 -> -> 1 `i `b ]
-"52
-[e ( _lcd_write (1 _c ]
-"53
-[e :UE 146 ]
-}
-"54
-[v _lcd_goto `(v ~T0 @X0 1 ef1`uc ]
-"55
-{
-[e :U _lcd_goto ]
-"54
-[v _pos `uc ~T0 @X0 1 r1 ]
-"55
 [f ]
+"52
+[e = _RD4 -> -> 1 `i `b ]
+"53
+[e $U 142  ]
+[e :U 143 ]
+"54
+{
+"55
+[e ( _lcd_write (1 *U _s ]
 "56
-[e = _RD4 -> -> 0 `i `b ]
+[e ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
 "57
-[e ( _lcd_write (1 _pos ]
+}
+[e :U 142 ]
+"53
+[e $ != -> *U _s `i -> 0 `i 143  ]
+[e :U 144 ]
 "58
-[e :UE 147 ]
+[e :UE 141 ]
 }
 "59
-[v _delay_LCD `(v ~T0 @X0 1 ef1`ul ]
+[v _lcd_putch `(v ~T0 @X0 1 ef1`uc ]
 "60
 {
-[e :U _delay_LCD ]
+[e :U _lcd_putch ]
 "59
-[v _t `ul ~T0 @X0 1 r1 ]
+[v _c `uc ~T0 @X0 1 r1 ]
 "60
 [f ]
 "61
-[v _var `ul ~T0 @X0 1 a ]
+[e = _RD4 -> -> 1 `i `b ]
 "62
+[e ( _lcd_write (1 _c ]
+"63
+[e :UE 145 ]
+}
+"64
+[v _lcd_goto `(v ~T0 @X0 1 ef1`uc ]
+"65
+{
+[e :U _lcd_goto ]
+"64
+[v _pos `uc ~T0 @X0 1 r1 ]
+"65
+[f ]
+"66
+[e = _RD4 -> -> 0 `i `b ]
+"67
+[e ( _lcd_write (1 _pos ]
+"68
+[e :UE 146 ]
+}
+"69
+[v _delay_LCD `(v ~T0 @X0 1 ef1`ul ]
+"70
+{
+[e :U _delay_LCD ]
+"69
+[v _t `ul ~T0 @X0 1 r1 ]
+"70
+[f ]
+"71
+[v _var `ul ~T0 @X0 1 a ]
+"72
 {
 [e = _var -> -> -> 0 `i `l `ul ]
-[e $U 152  ]
-[e :U 149 ]
+[e $U 151  ]
+[e :U 148 ]
 [e ++ _var -> -> -> 1 `i `l `ul ]
-[e :U 152 ]
-[e $ < _var >> _t -> 6 `i 149  ]
-[e :U 150 ]
+[e :U 151 ]
+[e $ < _var >> _t -> 6 `i 148  ]
+[e :U 149 ]
 }
-"63
-[e :UE 148 ]
+"73
+[e :UE 147 ]
 }
 [a 2C 77 97 99 97 114 105 32 73 111 110 0 ]
 [a 1C 80 114 111 105 101 99 116 32 83 67 68 65 32 50 48 50 51 0 ]

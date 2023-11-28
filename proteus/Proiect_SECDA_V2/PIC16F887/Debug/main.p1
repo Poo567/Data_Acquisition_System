@@ -1,13 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"19 ../config.h
+"20 ../config.h
 [v _init_uC `(v ~T0 @X0 0 ef ]
 "8 ../ADC.h
 [v _init_ADC `(v ~T0 @X0 0 ef ]
 "6 ../LCD.h
 [v _init_LCD `(v ~T0 @X0 0 ef ]
-"8
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
 "21 ../main.c
 [v _display_pressure `(v ~T0 @X0 0 ef ]
 "22
@@ -184,7 +182,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" EECON1 equ 018Ch ;# ">
 "3546
 [; <" EECON2 equ 018Dh ;# ">
-"8 ../config.h
+"9 ../config.h
 [p x FOSC=INTRC_NOCLKOUT ]
 [p x WDTE=OFF ]
 [p x PWRTE=OFF ]
@@ -196,7 +194,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x FCMEN=OFF ]
 [p x LVP=OFF ]
 [p x DEBUG=OFF ]
-"9
+"10
 [p x BOR4V=BOR21V ]
 [p x WRT=HALF ]
 "6 ../ADC.h
@@ -313,140 +311,138 @@ Version 3.2 HI-TECH Software Intermediate Code
 "32
 {
 "33
-[e ( _lcd_clear ..  ]
-"34
 [e ( _display_pressure ..  ]
-"35
+"34
 [e ( _display_temperature ..  ]
+"35
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "36
-[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"37
 }
 [e :U 140 ]
 "31
 [e $U 141  ]
 [e :U 142 ]
-"38
+"37
 [e :UE 139 ]
 }
-"40
+"39
 [v _get_pressure_value `(f ~T0 @X0 1 ef1`*d ]
-"41
+"40
 {
 [e :U _get_pressure_value ]
 [v _ADC_value `*d ~T0 @X0 1 r1 ]
 [f ]
-"42
+"41
 [v _result `i ~T0 @X0 1 a ]
 [e = _result -> 0 `i ]
-"43
+"42
 [v _vout `d ~T0 @X0 1 a ]
 [e = _vout *U _ADC_value ]
-"45
+"44
 [e $ ! && <= _vout .0.3 > _vout .0.1 144  ]
-"46
+"45
 {
-"47
+"46
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 0 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 1 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 0 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 1 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"48
+"47
 }
 [e $U 145  ]
-"49
+"48
 [e :U 144 ]
 [e $ ! && <= _vout .0.6 > _vout .0.3 146  ]
-"50
+"49
 {
-"51
+"50
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 1 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 2 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 1 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 2 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"52
+"51
 }
 [e $U 147  ]
-"53
+"52
 [e :U 146 ]
 [e $ ! && <= _vout .1.1 > _vout .0.6 148  ]
-"54
+"53
 {
-"55
+"54
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 2 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 3 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 2 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 3 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"56
+"55
 }
 [e $U 149  ]
-"57
+"56
 [e :U 148 ]
 [e $ ! && <= _vout .1.7 > _vout .1.1 150  ]
-"58
+"57
 {
-"59
+"58
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 3 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 4 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 3 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 4 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"60
+"59
 }
 [e $U 151  ]
-"61
+"60
 [e :U 150 ]
 [e $ ! && <= _vout .2.2 > _vout .1.7 152  ]
-"62
+"61
 {
-"63
+"62
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 4 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 5 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 4 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 5 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"64
+"63
 }
 [e $U 153  ]
-"65
+"64
 [e :U 152 ]
 [e $ ! && <= _vout .2.9 > _vout .2.2 154  ]
-"66
+"65
 {
-"67
+"66
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 5 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 6 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 5 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 6 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"68
+"67
 }
 [e $U 155  ]
-"69
+"68
 [e :U 154 ]
 [e $ ! && <= _vout .3.3 > _vout .2.9 156  ]
-"70
+"69
 {
-"71
+"70
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 6 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 7 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 6 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 7 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"72
+"71
 }
 [e $U 157  ]
-"73
+"72
 [e :U 156 ]
 [e $ ! && <= _vout .3.8 > _vout .3.3 158  ]
-"74
+"73
 {
-"75
+"74
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 7 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 8 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 7 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 8 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"76
+"75
 }
 [e $U 159  ]
-"77
+"76
 [e :U 158 ]
 [e $ ! && <= _vout .4.4 > _vout .3.8 160  ]
-"78
+"77
 {
-"79
+"78
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 8 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 9 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 8 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 9 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"80
+"79
 }
 [e $U 161  ]
-"81
+"80
 [e :U 160 ]
-[e $ ! && <= _vout .4.9 > _vout .4.4 162  ]
-"82
+[e $ ! && < _vout .4.91 > _vout .4.4 162  ]
+"81
 {
-"83
+"82
 [e = _result ( _interpolate (4 , , , , -> _vout `f *U + &U _voltage * -> -> -> 9 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _voltage * -> -> -> 10 `i `ui `ux -> -> # *U &U _voltage `ui `ux *U + &U _pressure * -> -> -> 9 `i `ui `ux -> -> # *U &U _pressure `ui `ux *U + &U _pressure * -> -> -> 10 `i `ui `ux -> -> # *U &U _pressure `ui `ux ]
-"84
+"83
 }
 [e $U 163  ]
-"85
+"84
 [e :U 162 ]
 {
-"86
+"85
 [e = _result -U -> 100 `i ]
-"87
+"86
 }
 [e :U 163 ]
 [e :U 161 ]
@@ -458,226 +454,226 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 149 ]
 [e :U 147 ]
 [e :U 145 ]
-"88
+"87
 [e ) -> _result `f ]
 [e $UE 143  ]
-"89
+"88
 [e :UE 143 ]
 }
-"91
+"90
 [v _get_temperature_value `(f ~T0 @X0 1 ef1`*d ]
-"92
+"91
 {
 [e :U _get_temperature_value ]
 [v _ADC_value `*d ~T0 @X0 1 r1 ]
 [f ]
-"93
+"92
 [v _result `i ~T0 @X0 1 a ]
 [e = _result -> 0 `i ]
-"94
+"93
 [v _vout `d ~T0 @X0 1 a ]
 [e = _vout *U _ADC_value ]
-"95
+"94
 [v _Rt `ul ~T0 @X0 1 a ]
 [e = _Rt -> -> -> 0 `i `l `ul ]
-"97
+"96
 [e = _Rt -> / * -> -> 1000 `i `d _vout - -> -> 5 `i `d _vout `ul ]
-"98
+"97
 [e $ ! && <= _Rt -> -> -> 241 `i `l `ul > _Rt -> -> -> 177 `i `l `ul 165  ]
-"99
+"98
 {
-"100
+"99
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 0 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 1 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"101
+"100
 }
 [e $U 166  ]
-"102
+"101
 [e :U 165 ]
 [e $ ! && <= _Rt -> -> -> 332 `i `l `ul > _Rt -> -> -> 241 `i `l `ul 167  ]
-"103
+"102
 {
-"104
+"103
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 1 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 2 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"105
+"104
 }
 [e $U 168  ]
-"106
+"105
 [e :U 167 ]
 [e $ ! && <= _Rt -> -> -> 467 `i `l `ul > _Rt -> -> -> 332 `i `l `ul 169  ]
-"107
+"106
 {
-"108
+"107
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 2 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 3 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 3 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"109
+"108
 }
 [e $U 170  ]
-"110
+"109
 [e :U 169 ]
 [e $ ! && <= _Rt -> -> -> 667 `i `l `ul > _Rt -> -> -> 467 `i `l `ul 171  ]
-"111
+"110
 {
-"112
+"111
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 3 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 4 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 3 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 4 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"113
+"112
 }
 [e $U 172  ]
-"114
+"113
 [e :U 171 ]
 [e $ ! && <= _Rt -> -> -> 973 `i `l `ul > _Rt -> -> -> 667 `i `l `ul 173  ]
-"115
+"114
 {
-"116
+"115
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 4 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 5 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 4 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 5 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"117
+"116
 }
 [e $U 174  ]
-"118
+"117
 [e :U 173 ]
 [e $ ! && <= _Rt -> -> -> 1188 `i `l `ul > _Rt -> -> -> 973 `i `l `ul 175  ]
-"119
+"118
 {
-"120
+"119
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 5 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 6 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 5 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 6 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"121
+"120
 }
 [e $U 176  ]
-"122
+"121
 [e :U 175 ]
 [e $ ! && <= _Rt -> -> -> 1459 `i `l `ul > _Rt -> -> -> 1188 `i `l `ul 177  ]
-"123
+"122
 {
-"124
+"123
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 6 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 7 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 6 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 7 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"125
+"124
 }
 [e $U 178  ]
-"126
+"125
 [e :U 177 ]
 [e $ ! && <= _Rt -> -> -> 1802 `i `l `ul > _Rt -> -> -> 1459 `i `l `ul 179  ]
-"127
+"126
 {
-"128
+"127
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 7 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 8 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 7 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 8 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"129
+"128
 }
 [e $U 180  ]
-"130
+"129
 [e :U 179 ]
 [e $ ! && <= _Rt -> -> -> 2238 `i `l `ul > _Rt -> -> -> 1802 `i `l `ul 181  ]
-"131
+"130
 {
-"132
+"131
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 8 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 9 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 8 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 9 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"133
+"132
 }
 [e $U 182  ]
-"134
+"133
 [e :U 181 ]
 [e $ ! && <= _Rt -> -> -> 2796 `i `l `ul > _Rt -> -> -> 2238 `i `l `ul 183  ]
-"135
+"134
 {
-"136
+"135
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 9 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 10 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 9 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 10 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"137
+"136
 }
 [e $U 184  ]
-"138
+"137
 [e :U 183 ]
 [e $ ! && <= _Rt -> -> -> 3520 `i `l `ul > _Rt -> -> -> 2796 `i `l `ul 185  ]
-"139
+"138
 {
-"140
+"139
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 10 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 11 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 10 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 11 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"141
+"140
 }
 [e $U 186  ]
-"142
+"141
 [e :U 185 ]
 [e $ ! && <= _Rt -> -> -> 4450 `i `l `ul > _Rt -> -> -> 3520 `i `l `ul 187  ]
-"143
+"142
 {
-"144
+"143
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 11 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 12 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 11 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 12 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"145
+"144
 }
 [e $U 188  ]
-"146
+"145
 [e :U 187 ]
 [e $ ! && <= _Rt -> -> -> 5670 `i `l `ul > _Rt -> -> -> 4450 `i `l `ul 189  ]
-"147
+"146
 {
-"148
+"147
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 12 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 13 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 12 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 13 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"149
+"148
 }
 [e $U 190  ]
-"150
+"149
 [e :U 189 ]
 [e $ ! && <= _Rt -> -> -> 7280 `i `l `ul > _Rt -> -> -> 5670 `i `l `ul 191  ]
-"151
+"150
 {
-"152
+"151
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 13 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 14 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 13 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 14 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"153
+"152
 }
 [e $U 192  ]
-"154
+"153
 [e :U 191 ]
 [e $ ! && <= _Rt -> -> -> 9420 `i `l `ul > _Rt -> -> -> 7280 `i `l `ul 193  ]
-"155
+"154
 {
-"156
+"155
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 14 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 15 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 14 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 15 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"157
+"156
 }
 [e $U 194  ]
-"158
+"157
 [e :U 193 ]
 [e $ ! && <= _Rt -> -> -> 16180 `i `l `ul > _Rt -> -> -> 9420 `i `l `ul 195  ]
-"159
+"158
 {
-"160
+"159
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 15 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 16 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 15 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 16 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"161
+"160
 }
 [e $U 196  ]
-"162
+"161
 [e :U 195 ]
 [e $ ! && <= _Rt -> -> -> 28680 `i `l `ul > _Rt -> -> -> 16180 `i `l `ul 197  ]
-"163
+"162
 {
-"164
+"163
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 16 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 17 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 16 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 17 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"165
+"164
 }
 [e $U 198  ]
-"166
+"165
 [e :U 197 ]
 [e $ ! && <= _Rt -> -> 52700 `l `ul > _Rt -> -> -> 28680 `i `l `ul 199  ]
-"167
+"166
 {
-"168
+"167
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 17 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 18 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 17 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 18 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"169
+"168
 }
 [e $U 200  ]
-"170
+"169
 [e :U 199 ]
 [e $ ! && <= _Rt -> -> 100000 `l `ul > _Rt -> -> 52700 `l `ul 201  ]
-"171
+"170
 {
-"172
+"171
 [e = _result ( _interpolate (4 , , , , -> _Rt `f -> *U + &U _res * -> -> -> 18 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _res * -> -> -> 19 `i `ui `ux -> -> # *U &U _res `ui `ux `f -> *U + &U _temp * -> -> -> 18 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> *U + &U _temp * -> -> -> 19 `i `ui `ux -> -> # *U &U _temp `ui `ux `i ]
-"173
+"172
 }
 [e $U 202  ]
-"174
+"173
 [e :U 201 ]
-"175
+"174
 {
-"176
+"175
 [e = _result -U -> 100 `i ]
-"177
+"176
 }
 [e :U 202 ]
 [e :U 200 ]
@@ -698,93 +694,93 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 170 ]
 [e :U 168 ]
 [e :U 166 ]
-"178
+"177
 [e ) -> _result `f ]
 [e $UE 164  ]
-"179
+"178
 [e :UE 164 ]
 }
-"181
+"180
 [v _interpolate `(i ~T0 @X0 1 ef5`f`f`f`i`i ]
-"182
+"181
 {
 [e :U _interpolate ]
-"181
+"180
 [v _x `f ~T0 @X0 1 r1 ]
 [v _x1 `f ~T0 @X0 1 r2 ]
 [v _x2 `f ~T0 @X0 1 r3 ]
 [v _y1 `i ~T0 @X0 1 r4 ]
 [v _y2 `i ~T0 @X0 1 r5 ]
-"182
+"181
 [f ]
-"183
+"182
 [e ) -> + -> _y1 `f * / -> - _y2 _y1 `f - _x2 _x1 - _x _x1 `i ]
 [e $UE 203  ]
-"184
+"183
 [e :UE 203 ]
 }
-"186
+"185
 [v _display_pressure `(v ~T0 @X0 1 ef ]
-"187
+"186
 {
 [e :U _display_pressure ]
 [f ]
-"188
+"187
 [v _calculated_pressure `i ~T0 @X0 1 a ]
 [e = _calculated_pressure -> 0 `i ]
-"190
+"189
 [e = *U + &U _ADC_value * -> -> -> 0 `i `ui `ux -> -> # *U &U _ADC_value `ui `ux ( _read_adc (1 -> 0 `i ]
-"191
+"190
 [e = _calculated_pressure -> ( _get_pressure_value (1 -> &U *U + &U _ADC_value * -> -> -> 0 `i `ui `ux -> -> # *U &U _ADC_value `ui `ux `*d `i ]
-"192
+"191
 [e $ ! == _calculated_pressure -U -> 100 `i 205  ]
-"193
+"192
 [e ( _strcpy (2 , &U _display_value :s 1C ]
 [e $U 206  ]
-"194
+"193
 [e :U 205 ]
-"195
+"194
 [e ( _sprintf (1 , (. , &U _display_value :s 2C _calculated_pressure ]
 [e :U 206 ]
-"196
+"195
 [e ( _lcd_goto (1 -> -> 128 `i `uc ]
-"197
+"196
 [e ( _lcd_puts (1 &U _display_value ]
-"198
+"197
 [e :UE 204 ]
 }
-"200
+"199
 [v _display_temperature `(v ~T0 @X0 1 ef ]
-"201
+"200
 {
 [e :U _display_temperature ]
 [f ]
-"202
+"201
 [v _calculated_temp `i ~T0 @X0 1 a ]
 [e = _calculated_temp -> 0 `i ]
-"204
+"203
 [e = *U + &U _ADC_value * -> -> -> 1 `i `ui `ux -> -> # *U &U _ADC_value `ui `ux ( _read_adc (1 -> 1 `i ]
-"205
+"204
 [e = _calculated_temp -> ( _get_temperature_value (1 -> &U *U + &U _ADC_value * -> -> -> 1 `i `ui `ux -> -> # *U &U _ADC_value `ui `ux `*d `i ]
-"206
+"205
 [e $ ! == _calculated_temp -U -> 100 `i 208  ]
-"207
+"206
 [e ( _strcpy (2 , &U _display_value :s 3C ]
 [e $U 209  ]
-"208
+"207
 [e :U 208 ]
-"209
+"208
 [e ( _sprintf (1 , (. , &U _display_value :s 4C _calculated_temp ]
 [e :U 209 ]
-"210
+"209
 [e ( _lcd_goto (1 -> -> 148 `i `uc ]
-"211
+"210
 [e ( _lcd_puts (1 &U _display_value ]
-"212
+"211
 [e :UE 207 ]
 }
 [p f _sprintf 8388736 ]
 [a 3C 84 32 105 115 32 111 117 116 32 111 102 32 98 111 117 110 100 115 0 ]
 [a 1C 80 32 105 115 32 111 117 116 32 111 102 32 98 111 117 110 100 115 0 ]
-[a 2C 80 32 61 32 37 100 32 98 97 114 0 ]
-[a 4C 84 32 61 32 37 100 32 67 0 ]
+[a 2C 80 32 61 32 37 100 32 98 97 114 32 32 32 32 32 32 32 32 32 32 0 ]
+[a 4C 84 32 61 32 37 100 32 67 32 32 32 32 32 32 32 32 32 32 0 ]

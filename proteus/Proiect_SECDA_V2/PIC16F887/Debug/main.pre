@@ -2672,11 +2672,11 @@ extern char * strichr(const char *, int) __attribute__((__deprecated__));
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int) __attribute__((__deprecated__));
 
-# 8 "../config.h"
+# 9 "../config.h"
 __config("__PROG_CONFIG", "pic", 1, 0x20D4);
 __config("__PROG_CONFIG", "pic", 2, 0x0000);
 
-# 19
+# 20
 void init_uC(void);
 
 # 6 "../ADC.h"
@@ -2716,10 +2716,9 @@ init_LCD();
 
 while(1)
 {
-lcd_clear();
 display_pressure();
 display_temperature();
-_delay((unsigned long)((400)*(8000000/4000.0)));
+_delay((unsigned long)((200)*(8000000/4000.0)));
 }
 }
 
@@ -2764,7 +2763,7 @@ else if (vout <= 4.4 && vout > 3.8)
 {
 result = interpolate(vout, voltage[8], voltage[9], pressure[8], pressure[9]);
 }
-else if (vout <= 4.9 && vout > 4.4)
+else if (vout < 4.91 && vout > 4.4)
 {
 result = interpolate(vout, voltage[9], voltage[10], pressure[9], pressure[10]);
 }
@@ -2878,7 +2877,7 @@ calculated_pressure = get_pressure_value(&ADC_value[0]);
 if (calculated_pressure == -100)
 strcpy(display_value, "P is out of bounds");
 else
-sprintf(display_value, "P = %d bar", calculated_pressure);
+sprintf(display_value, "P = %d bar          ", calculated_pressure);
 lcd_goto(0x80);
 lcd_puts(display_value);
 }
@@ -2892,7 +2891,7 @@ calculated_temp = get_temperature_value(&ADC_value[1]);
 if (calculated_temp == -100)
 strcpy(display_value, "T is out of bounds");
 else
-sprintf(display_value, "T = %d C", calculated_temp);
+sprintf(display_value, "T = %d C          ", calculated_temp);
 lcd_goto(0x94);
 lcd_puts(display_value);
 }

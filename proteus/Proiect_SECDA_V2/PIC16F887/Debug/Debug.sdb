@@ -23,15 +23,15 @@
 [v _delay_LCD delay_LCD `(v  1 e 1 0 ]
 "24 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 [v _main main `(v  1 e 1 0 ]
-"40
+"39
 [v _get_pressure_value get_pressure_value `(f  1 e 3 0 ]
-"91
+"90
 [v _get_temperature_value get_temperature_value `(f  1 e 3 0 ]
-"181
+"180
 [v _interpolate interpolate `(i  1 e 2 0 ]
-"186
+"185
 [v _display_pressure display_pressure `(v  1 e 1 0 ]
-"200
+"199
 [v _display_temperature display_temperature `(v  1 e 1 0 ]
 "32 D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
@@ -104,7 +104,7 @@
 "24 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"38
+"37
 } 0
 "3 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/config.c
 [v _init_uC init_uC `(v  1 e 1 0 ]
@@ -126,29 +126,29 @@
 {
 "20
 } 0
-"200 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+"199 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 [v _display_temperature display_temperature `(v  1 e 1 0 ]
 {
-"202
+"201
 [v display_temperature@calculated_temp calculated_temp `i  1 a 2 13 ]
-"212
+"211
 } 0
-"91
+"90
 [v _get_temperature_value get_temperature_value `(f  1 e 3 0 ]
 {
-"92
-[v get_temperature_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
-"95
-[v get_temperature_value@Rt Rt `ul  1 a 4 6 ]
-"94
-[v get_temperature_value@vout vout `d  1 a 3 1 ]
-"93
-[v get_temperature_value@result result `i  1 a 2 4 ]
-"92
-[v get_temperature_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
 "91
+[v get_temperature_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
+"94
+[v get_temperature_value@Rt Rt `ul  1 a 4 6 ]
+"93
+[v get_temperature_value@vout vout `d  1 a 3 1 ]
+"92
+[v get_temperature_value@result result `i  1 a 2 4 ]
+"91
+[v get_temperature_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
+"90
 [v get_temperature_value@ADC_value ADC_value `*.4d  1 a 1 0 ]
-"179
+"178
 } 0
 "35 D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\lltoft.c
 [v ___lltoft __lltoft `(f  1 e 3 0 ]
@@ -159,12 +159,12 @@
 [v ___lltoft@c c `ul  1 p 4 8 ]
 "46
 } 0
-"186 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+"185 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 [v _display_pressure display_pressure `(v  1 e 1 0 ]
 {
-"188
+"187
 [v display_pressure@calculated_pressure calculated_pressure `i  1 a 2 9 ]
-"198
+"197
 } 0
 "8 D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\strcpy.c
 [v _strcpy strcpy `(*.5uc  1 e 1 0 ]
@@ -264,22 +264,22 @@
 [v delay_LCD@t t `ul  1 p 4 0 ]
 "63
 } 0
-"40 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
+"39 D:\UNIVERSITATE\Master\Anul2, Semestrul1\SECDA\proiect\proteus\Proiect_SECDA_V2\PIC16F887/main.c
 [v _get_pressure_value get_pressure_value `(f  1 e 3 0 ]
 {
-"41
-[v get_pressure_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
-"43
-[v get_pressure_value@vout vout `d  1 a 3 3 ]
-"42
-[v get_pressure_value@result result `i  1 a 2 1 ]
-"41
-[v get_pressure_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
 "40
+[v get_pressure_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
+"42
+[v get_pressure_value@vout vout `d  1 a 3 3 ]
+"41
+[v get_pressure_value@result result `i  1 a 2 1 ]
+"40
+[v get_pressure_value@ADC_value ADC_value `*.4d  1 a 1 wreg ]
+"39
 [v get_pressure_value@ADC_value ADC_value `*.4d  1 a 1 0 ]
-"89
+"88
 } 0
-"181
+"180
 [v _interpolate interpolate `(i  1 e 2 0 ]
 {
 [v interpolate@x x `f  1 p 3 61 ]
@@ -287,7 +287,7 @@
 [v interpolate@x2 x2 `f  1 p 3 67 ]
 [v interpolate@y1 y1 `i  1 p 2 70 ]
 [v interpolate@y2 y2 `i  1 p 2 72 ]
-"184
+"183
 } 0
 "44 D:\aplicatii\Microchip\xc8\v2.45\pic\sources\c90\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
